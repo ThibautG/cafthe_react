@@ -10,8 +10,8 @@ function ProductDetails(props) {
     useEffect(() => {
         const fetchProduits = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/produits/${id}`);
-                /*console.log("http://localhost:3001/api/produits/" + id)*/
+                const response = await axios.get(`http://localhost:3001/api/produit/${id}`);
+                /*console.log("http://localhost:3001/api/produit/" + id)*/
                 setProduit(response.data);
             } catch (error) {
                 console.error("Erreur de chargement du produit", error);

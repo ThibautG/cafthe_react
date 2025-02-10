@@ -1,36 +1,32 @@
 import React, {useEffect, useState} from 'react';
-/* npm install axios */ /* librairie qui facilite échanges avec API */
 import axios from "axios";
-import ProductCard from "../components/ProductCard";
-import "../styles/ProductList.css";
-/* npm install react-loading-skeleton */
 import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import ProductCard from "../components/ProductCard";
 
-function ProductList(props) {
-    const [produits, setProduits] = useState([]);
+function Coffee(props) {
+    const [coffee, setCoffee] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchProduits = async () => {
+        const fetchCoffee = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/produits");
-                setProduits(response.data);
+                const response = await axios.get("http://localhost:3001/api/produits/cafes");
+                setCoffee(response.data);
             } catch (error) {
-                console.error("Erreur de chargement des produits", error);
+                console.error("Erreur de chargement des cafés", error);
             } finally {
                 setIsLoading(false); /* on arrête d'afficher les éléments de chargement (squelette)*/
             }
         };
 
-        void fetchProduits();
+        void fetchCoffee();
     }, []);
 
     /*console.log(produits);*/
     if (isLoading) {
         return (
             <div className={"product-list"}>
-                {Array.from({length : produits.length}).map((_,i) => (
+                {Array.from({length : coffee.length}).map((_,i) => (
                     <div key={i} className={"product-skeleton"}>
                         {/* image */}
                         <Skeleton height={200} width={300}/>
@@ -50,11 +46,11 @@ function ProductList(props) {
 
     return (
         <div>
-            <h3>Liste des produits</h3>
+            <h3>Liste des Cafés</h3>
             <div className={"product-list"}>
-                {produits.map((produit) => (
+                {coffee.map((produit) => (
                     <div className={"product"}>
-                    <ProductCard key={produit.Identifiant_produit} produit={produit} />
+                        <ProductCard key={produit.Identifiant_produit} produit={produit}/>
                     </div>)
                 )}
             </div>
@@ -62,4 +58,4 @@ function ProductList(props) {
     );
 }
 
-export default ProductList;
+export default Coffee;
