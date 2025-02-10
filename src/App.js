@@ -1,10 +1,20 @@
 import './styles/App.css';
 import Layout from "./layout/Layout";
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div>
-      <Layout />
+        <Router>
+        <Routes>
+            <Route path="/" element={<Layout />}>
+                <Route index element={<Home />}/>
+            </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
+            {/* Gestion des routes non trouvées */}
+            {/*<Route path="*" element={<NotFound />} />*/}
+        </Routes>
+    </Router>
     </div>
   );
 }

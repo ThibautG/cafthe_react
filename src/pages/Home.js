@@ -1,8 +1,12 @@
 import React from 'react';
+import ProductList from "./ProductList";
 
 function Home(props) {
     return (
-        <div></div>
+        <div>
+            <h1>Bienvenue la Team</h1>
+            <ProductList />
+        </div>
     );
 }
 
