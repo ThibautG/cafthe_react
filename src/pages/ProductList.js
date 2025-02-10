@@ -19,7 +19,7 @@ function ProductList(props) {
         void fetchProduits();
     }, []);
 
-    console.log(produits);
+    /*console.log(produits);*/
 
     return (
         <div>
