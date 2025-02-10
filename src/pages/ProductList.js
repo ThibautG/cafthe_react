@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 /* npm install axios */ /* librairie qui facilite échanges avec API */
 import axios from "axios";
+import ProductCard from "../components/ProductCard";
 
 function ProductList(props) {
     const [produits, setProduits] = useState([]);
@@ -24,7 +25,9 @@ function ProductList(props) {
         <div>
             <h3>Liste des produits</h3>
             <div className={"product-list"}>
-                {produits.map((produit) => produit.Identifiant_produit)}
+                {produits.map((produit) => (
+                    <ProductCard key={produit.Identifiant_produit} produit={produit} />)
+                )}
             </div>
         </div>
     );
