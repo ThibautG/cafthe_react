@@ -7,6 +7,7 @@ import Coffee from "./pages/Coffee";
 import Tea from "./pages/Tea";
 import Accessories from "./pages/Accessories";
 import {AuthProvider} from "./context/AuthContext";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route index element={<Home />}/>
+                        <Route path={"login"} element={<Login />} />
+                        <Route index element={<Home />} />
                         <Route path={"/produit/:id"} element={<ProductDetails />} />
                         <Route path={"/produits/cafes"} element={<Coffee />} />
                         <Route path={"/produits/thes"} element={<Tea />} />
