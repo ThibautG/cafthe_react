@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import ProductCard from "../components/ProductCard";
+import "../styles/Coffee.css"
 
 function Coffee(props) {
     const [coffee, setCoffee] = useState([]);

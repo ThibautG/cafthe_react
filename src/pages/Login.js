@@ -1,24 +1,46 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import "../styles/Login.css"
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
+    const { login } = useContext(AuthContext); // fonction login venant du contexte
+    const navigate = useNavigate(); // la navigation
+
     const [email, setEmail] = useState("");
     const [mdp, setMdp] = useState("");
-    const [erroMsg, setErrorMsg] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
 
-    const handleSubmit = async (e) => { // fonction asynchrone car on va aller chercher les données dans l'api
+
+    const handleSubmit = async (e) => { // fonction asynchrone car on va aller chercher les données dans l'API
         e.preventDefault();
+        setErrorMsg("");
 
         try {
             const response = await axios.post("http://localhost:3001/api/login",
                     {
-                        email, mdp,
+                        "Mail_client": email,
+                        "Mdp_client": mdp,
                     },
             );
+            console.log(response.data);
 
             const {token, client} = response.data;
-        } catch (error) {}
+
+            // On met à jour contexte d'authentification
+            login(token, client);
+
+            // redirection du client vers une page
+            navigate("/");
+        } catch (error) {
+            console.error("Erreur lors de la connexion : ", error);
+            if (error.response.data.message) {
+                setErrorMsg(error.response.data.message);
+            } else {
+                setErrorMsg("Erreur");
+            }
+        }
     };
 
     return (
@@ -43,6 +65,9 @@ function Login(props) {
                                required
                                name="user_password"/>
                     </li>
+                    {errorMsg && (
+                        <div>{errorMsg}</div> // structure d'affichage conditionnel
+                    )}
                     <li className="button">
                         <button type="submit">Connexion</button>
                     </li>
