@@ -15,6 +15,9 @@ function Profil(props) {
     const [inputValueTelephone, setInputValueTelephone] = useState(infos.Telephone_client || "");
     const [inputValueAdresse, setInputValueAdresse] = useState(infos.Adresse_client || "");
 
+    // un state pour montrer ou cacher le formulaire
+    const [showForm, setShowForm] = useState(false);
+
     // fonction à appeler sur onChange du champ input pour stocker valeur
     const handleInputChangeMail = (e) => {
         setInputValueMail(e.target.value);
@@ -26,14 +29,9 @@ function Profil(props) {
         setInputValueAdresse(e.target.value);
     };
 
-    // fonction pour le onClick du bouton
-    const handleInfoMail = () => {
-        console.log("Valeur de l'inputMail :", inputValueMail);
 
-
-    };
-
-    const handleInfoTelephone = async () => {
+    // fonction pour le onSubmit du bouton
+    const handleInfo = async () => {
         /*console.log("Valeur de l'inputTelephone :", inputValueTelephone);*/
         try {
             const response = await axios.put(
@@ -53,11 +51,6 @@ function Profil(props) {
         } catch (error) {
             console.error("Erreur de modification du profil", error);
         }
-    };
-
-    const handleInfoAdresse = () => {
-        console.log("Valeur de l'inputAdresse :", inputValueAdresse);
-
     };
 
     useEffect(() => {
@@ -96,14 +89,21 @@ function Profil(props) {
             {/* image */}
             <h3>Bonjour {infos.Prenom_client} {infos.Nom_client}</h3>
             <p>E-mail : {infos.Mail_client}</p>
-            <button onClick={handleInfoMail}>Modifier</button>
-            <input type="email" value={inputValueMail} onChange={handleInputChangeMail} placeholder={"nouvel email"}/>
             <p>Téléphone : {infos.Telephone_client}</p>
-            <button onClick={handleInfoTelephone}>Modifier</button>
-            <input type="text" value={inputValueTelephone} onChange={handleInputChangeTelephone} placeholder={"nouveau téléphone"}/>
             <p>Adresse : {infos.Adresse_client}</p>
-            <button onClick={handleInfoAdresse}>Modifier</button>
-            <input type="text" value={inputValueAdresse} onChange={handleInputChangeAdresse} placeholder={"nouvelle adresse"}/>
+
+            <button onClick={() => setShowForm(!showForm)}>
+                {showForm ? "Annuler" : "Modifier mes informations"}
+            </button>
+
+            {showForm && (
+                <form onSubmit={handleInfo}>
+                    <input type="email" value={inputValueMail} onChange={(e) => setInputValueMail(e.target.value)} />
+                    <input type="text" value={inputValueTelephone} onChange={(e) => setInputValueTelephone(e.target.value)} />
+                    <input type="text" value={inputValueAdresse} onChange={(e) => setInputValueAdresse(e.target.value)} />
+                    <button type={"submit"}>Valider</button>
+                </form>
+            )}
             <Link to={`/`} className={"details-btn"}>
                 Retour à l'accueil
             </Link>
