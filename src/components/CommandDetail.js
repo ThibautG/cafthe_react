@@ -22,7 +22,7 @@ function CommandDetail(props) {
         void fetchDetail();
     }, [id]);
 
-    console.log(detail)
+    /*console.log(detail)*/
 
     return (
         <div>
