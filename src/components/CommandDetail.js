@@ -11,6 +11,7 @@ function CommandDetail(props) {
     useEffect(() => {
         const fetchDetail = async () => {
             try {
+                // route get détail d'une commande avec son id
                 const response = await axios.get(`http://localhost:3001/api/commandes/${id}`);
                 setDetail(response.data);
             } catch (error) {
@@ -38,6 +39,7 @@ function CommandDetail(props) {
                 )}
                 <div className={"command"}>
                     <p>Date commande : {detail[0].Date_commande}</p>
+                    {/*on utilise premier objet présent dans detail[] car la date et le total sont les mêmes partout*/}
                     <p>Montant total commande TTC : {detail[0].Montant_ttc_commande}€</p>
                 </div>
             </div>
