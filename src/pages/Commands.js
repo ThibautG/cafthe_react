@@ -13,6 +13,7 @@ function Commands(props) {
     useEffect(() => {
         const fetchProduits = async () => {
             try {
+                // route get de toutes les commandes d'un client
                 const response = await axios.get(`http://localhost:3001/api/commandes/clients/${user.id}`);
                 setCommands(response.data);
             } catch (error) {
@@ -36,6 +37,8 @@ function Commands(props) {
                             <p>Identifiant commande : {command.Identifiant_commande}</p>
                             <p>Date commande : {command.Date_commande}</p>
                             <p>Montant TTC commande : {command.Montant_ttc_commande}€</p>
+                            <p>Type commande : {command.Type_commande}</p>
+                            <p>Statut commande : {command.Statut_commande}</p>
                             <Link to={`/commandes/${command.Identifiant_commande}`} className={"details-btn"}>
                                 Voir détails
                             </Link>
@@ -43,7 +46,7 @@ function Commands(props) {
                     )}
                 </div>
 
-            <Link to={`/profil`} className={"details-btn"}>
+                <Link to={`/profil`} className={"details-btn"}>
                 Voir mon profil
             </Link>
 
