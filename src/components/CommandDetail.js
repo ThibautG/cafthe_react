@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/CommandDetail.css"
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 
 function CommandDetail(props) {
@@ -24,7 +24,24 @@ function CommandDetail(props) {
     console.log(detail)
 
     return (
-        <div>Coucou les détails</div>
+        <div>
+            <h3>Détail de la commande numéro {id}</h3>
+            <div className={"command-list"}>
+                {detail.map((item) => (
+                    <div className={"command"}>
+                        <p>Designation : {item.Designation_produit}</p>
+                        <p>Quantité : {item.Quantite_produit_ligne_commande}</p>
+                        <p>Conditionnement : {item.Type_conditionnement}</p>
+                        <p>Prix unitaire TTC : {item.Prix_unitaire_ttc_produit_ligne_commande}€</p>
+                        <p>Prix total TTC : {item.Prix_unitaire_ttc_produit_ligne_commande * item.Quantite_produit_ligne_commande}€</p>
+                    </div>)
+                )}
+                <div className={"command"}>
+                    <p>Date commande : {detail[0].Date_commande}</p>
+                    <p>Montant total commande TTC : {detail[0].Montant_ttc_commande}€</p>
+                </div>
+            </div>
+        </div>
     );
 }
 
