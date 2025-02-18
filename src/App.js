@@ -9,6 +9,8 @@ import Accessories from "./pages/Accessories";
 import {AuthProvider} from "./context/AuthContext";
 import Login from "./pages/Login";
 import Profil from "./pages/Profil";
+import Commands from "./pages/Commands";
+import CommandDetail from "./components/CommandDetail";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
                         <Route path={"/produits/thes"} element={<Tea />} />
                         <Route path={"/produits/accessoires"} element={<Accessories />} />
                         <Route path={"/profil"} element={<Profil />} />
+                        <Route path={"/commandes/clients/:id"} element={<Commands />} />
+                        <Route path={"/commande"} element={<CommandDetail />} />
                     </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
                     {/* Gestion des routes non trouvées */}
                     {/*<Route path="*" element={<NotFound />} />*/}
