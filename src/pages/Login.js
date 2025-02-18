@@ -32,7 +32,7 @@ function Login(props) {
             login(token, client);
 
             // redirection du client vers une page
-            navigate("/");
+            navigate("/profil");
         } catch (error) {
             console.error("Erreur lors de la connexion : ", error);
             if (error.response.data.message) {

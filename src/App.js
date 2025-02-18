@@ -8,6 +8,7 @@ import Tea from "./pages/Tea";
 import Accessories from "./pages/Accessories";
 import {AuthProvider} from "./context/AuthContext";
 import Login from "./pages/Login";
+import Profil from "./pages/Profil";
 
 function App() {
   return (
@@ -15,12 +16,13 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route path={"login"} element={<Login />} />
+                        <Route path={"/login"} element={<Login />} />
                         <Route index element={<Home />} />
                         <Route path={"/produit/:id"} element={<ProductDetails />} />
                         <Route path={"/produits/cafes"} element={<Coffee />} />
                         <Route path={"/produits/thes"} element={<Tea />} />
                         <Route path={"/produits/accessoires"} element={<Accessories />} />
+                        <Route path={"/profil"} element={<Profil />} />
                     </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
                     {/* Gestion des routes non trouvées */}
                     {/*<Route path="*" element={<NotFound />} />*/}
