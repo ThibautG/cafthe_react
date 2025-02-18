@@ -15,8 +15,15 @@ function Profil(props) {
     const [inputValueTelephone, setInputValueTelephone] = useState(infos.Telephone_client || "");
     const [inputValueAdresse, setInputValueAdresse] = useState(infos.Adresse_client || "");
 
+    // on récupère les champs input pour changer le mot de passe
+    const [inputValueOldPassword, setInputValueOldPassword] = useState("");
+    const [inputValueNewPassword, setInputValueNewPassword] = useState("");
+
     // un state pour montrer ou cacher le formulaire
     const [showForm, setShowForm] = useState(false);
+
+    // un state pour afficher ou non l'input de modification du mdp
+    const [showPassword, setShowPassword] = useState(false);
 
     // fonction à appeler sur onChange du champ input pour stocker valeur
     const handleInputChangeMail = (e) => {
@@ -30,7 +37,7 @@ function Profil(props) {
     };
 
 
-    // fonction pour le onSubmit du bouton
+    // fonction pour le onSubmit du bouton du formulaire
     const handleInfo = async () => {
         /*console.log("Valeur de l'inputTelephone :", inputValueTelephone);*/
         try {
@@ -52,6 +59,29 @@ function Profil(props) {
             console.error("Erreur de modification du profil", error);
         }
     };
+
+    // fonction pour le onSubmit de modification du password
+    const handlePassword = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.put(
+                `http://localhost:3001/api/login/${user.id}`,
+                {
+                    "oldMdp": inputValueOldPassword,
+                    "newMdp": inputValueNewPassword,
+                }
+            );
+
+            console.log("Réponse du serveur :", response.data);
+            window.location.reload();
+            alert("OUI");
+
+        } catch (error) {
+            console.error("Erreur de modification du password", error);
+            alert("NON !")
+        }
+    };
+
 
     useEffect(() => {
         /*console.log(user)*/
@@ -92,18 +122,35 @@ function Profil(props) {
             <p>Téléphone : {infos.Telephone_client}</p>
             <p>Adresse : {infos.Adresse_client}</p>
 
-            <button onClick={() => setShowForm(!showForm)}>
-                {showForm ? "Annuler" : "Modifier mes informations"}
-            </button>
+            <div>
+                <button onClick={() => setShowForm(!showForm)}>
+                    {showForm ? "Annuler" : "Modifier mes informations"}
+                </button>
 
-            {showForm && (
-                <form onSubmit={handleInfo}>
-                    <input type="email" value={inputValueMail} onChange={(e) => setInputValueMail(e.target.value)} />
-                    <input type="text" value={inputValueTelephone} onChange={(e) => setInputValueTelephone(e.target.value)} />
-                    <input type="text" value={inputValueAdresse} onChange={(e) => setInputValueAdresse(e.target.value)} />
-                    <button type={"submit"}>Valider</button>
-                </form>
-            )}
+                {showForm && (
+                    <form onSubmit={handleInfo}>
+                        <input type="email" value={inputValueMail} onChange={(e) => setInputValueMail(e.target.value)} />
+                        <input type="text" value={inputValueTelephone} onChange={(e) => setInputValueTelephone(e.target.value)} />
+                        <input type="text" value={inputValueAdresse} onChange={(e) => setInputValueAdresse(e.target.value)} />
+                        <button type={"submit"}>Valider</button>
+                    </form>
+                )}
+            </div>
+
+            <div>
+                <button onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? "Annuler" : "Changer le mot de passe"}
+                </button>
+
+                {showPassword && (
+                    <form onSubmit={handlePassword}>
+                        <input type="text" placeholder={"ANCIEN mot de passe"} onChange={(e) => setInputValueOldPassword(e.target.value)} />
+                        <input type="text" placeholder={"NOUVEAU mot de passe"} onChange={(e) => setInputValueNewPassword(e.target.value)} />
+                        <button type={"submit"}>Valider</button>
+                    </form>
+                )}
+            </div>
+
             <Link to={`/`} className={"details-btn"}>
                 Retour à l'accueil
             </Link>
