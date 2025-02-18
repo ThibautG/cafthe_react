@@ -74,11 +74,11 @@ function Profil(props) {
 
             console.log("Réponse du serveur :", response.data);
             window.location.reload();
-            alert("OUI");
+            alert("Mot de passe modifié");
 
         } catch (error) {
             console.error("Erreur de modification du password", error);
-            alert("NON !")
+            alert("Erreur de modification du mot de passe !")
         }
     };
 
@@ -144,8 +144,8 @@ function Profil(props) {
 
                 {showPassword && (
                     <form onSubmit={handlePassword}>
-                        <input type="text" placeholder={"ANCIEN mot de passe"} onChange={(e) => setInputValueOldPassword(e.target.value)} />
-                        <input type="text" placeholder={"NOUVEAU mot de passe"} onChange={(e) => setInputValueNewPassword(e.target.value)} />
+                        <input type="password" placeholder={"ANCIEN mot de passe"} onChange={(e) => setInputValueOldPassword(e.target.value)} />
+                        <input type="password" placeholder={"NOUVEAU mot de passe"} onChange={(e) => setInputValueNewPassword(e.target.value)} />
                         <button type={"submit"}>Valider</button>
                     </form>
                 )}
