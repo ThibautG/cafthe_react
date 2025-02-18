@@ -26,7 +26,7 @@ function App() {
                         <Route path={"/produits/accessoires"} element={<Accessories />} />
                         <Route path={"/profil"} element={<Profil />} />
                         <Route path={"/commandes/clients/:id"} element={<Commands />} />
-                        <Route path={"/commande"} element={<CommandDetail />} />
+                        <Route path={"/commandes/:id"} element={<CommandDetail />} />
                     </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
                     {/* Gestion des routes non trouvées */}
                     {/*<Route path="*" element={<NotFound />} />*/}

@@ -4,7 +4,7 @@ import {Link, useParams} from "react-router-dom";
 
 
 function Profil(props) {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const [infos, setInfos] = useState({}); // pour récupérer les infos du client afin d'afficher
     const [loading, setLoading] = useState(true); // Pour savoir si les données sont en cours de chargement
@@ -153,6 +153,10 @@ function Profil(props) {
 
             <Link to={`/`} className={"details-btn"}>
                 Retour à l'accueil
+            </Link>
+
+            <Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>
+                Voir les commandes
             </Link>
         </div>
     );
