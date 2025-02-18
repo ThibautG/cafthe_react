@@ -78,7 +78,7 @@ function Profil(props) {
 
         } catch (error) {
             console.error("Erreur de modification du password", error);
-            alert("Erreur de modification du mot de passe !")
+            alert("Erreur lors de la modification du mot de passe !")
         }
     };
 
