@@ -30,18 +30,38 @@ function Profil(props) {
     const handleInfoMail = () => {
         console.log("Valeur de l'inputMail :", inputValueMail);
 
-    };
-    const handleInfoTelephone = () => {
-        console.log("Valeur de l'inputTelephone :", inputValueTelephone);
 
     };
+
+    const handleInfoTelephone = async () => {
+        /*console.log("Valeur de l'inputTelephone :", inputValueTelephone);*/
+        try {
+            const response = await axios.put(
+                `http://localhost:3001/api/clients/${user.id}`,
+                {
+                    "Mail_client": inputValueMail,
+                    "Telephone_client": inputValueTelephone,
+                    "Adresse_client": inputValueAdresse,
+                }
+            );
+            /*console.log(`http://localhost:3001/api/client/${user.id}`)*/
+            console.log("Réponse du serveur :", response.data);
+
+            // On met à jour les infos avec les nouvelles données
+            setInfos(response.data);
+
+        } catch (error) {
+            console.error("Erreur de modification du profil", error);
+        }
+    };
+
     const handleInfoAdresse = () => {
         console.log("Valeur de l'inputAdresse :", inputValueAdresse);
 
     };
 
     useEffect(() => {
-        console.log(user)
+        /*console.log(user)*/
         if (!user) {
             setError("Utilisateur non authentifié");
             setLoading(false);
