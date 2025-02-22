@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Profil from "./pages/Profil";
 import Commands from "./pages/Commands";
 import CommandDetail from "./components/CommandDetail";
+import Registration from "./pages/Registration";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                         <Route path={"/profil"} element={<Profil />} />
                         <Route path={"/commandes/clients/:id"} element={<Commands />} />
                         <Route path={"/commandes/:id"} element={<CommandDetail />} />
+                        <Route path={"/register"} element={<Registration />} />
                     </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
                     {/* Gestion des routes non trouvées */}
                     {/*<Route path="*" element={<NotFound />} />*/}
