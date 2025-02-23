@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import "../styles/Login.css"
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Login(props) {
     const { login } = useContext(AuthContext); // fonction login venant du contexte
@@ -70,6 +70,7 @@ function Login(props) {
                     )}
                     <li className="button">
                         <button type="submit">Connexion</button>
+                        <button><Link to={`/register`} className={"details-btn"}>S'inscrire</Link></button>
                     </li>
                 </ul>
             </form>
