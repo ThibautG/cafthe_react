@@ -54,7 +54,7 @@ function Login(props) {
                                onChange={(e) => setEmail(e.target.value)}
                                id="email"
                                required
-                               name="user_mail"/>
+                               name="mail"/>
                     </li>
                     <li>
                         <label htmlFor="password">Mot de passe : </label>
@@ -63,7 +63,7 @@ function Login(props) {
                                onChange={(e) => setMdp(e.target.value)}
                                id="password"
                                required
-                               name="user_password"/>
+                               name="password"/>
                     </li>
                     {errorMsg && (
                         <div>{errorMsg}</div> // structure d'affichage conditionnel
