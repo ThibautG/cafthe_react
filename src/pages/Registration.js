@@ -6,23 +6,17 @@ function Registration(props) {
     const navigate = useNavigate();// la navigation
 
     /*
-* Route : inscription d'un client
-* POST /api/register
-* Exemple : JSON
-* {
-* "Nom_client" : "Dupont",
-* "Prenom_client" : "Jean",
-* "Date_inscription_client": "2025-02-13",
-* "Mail_client" : "jean.dupont@email.com",
-* "Telephone_client": "0793625147",
-* "Adresse_client": "13 Rue Des Roses, Nice, 06004",
-* "Mdp_client" : "monMotDePasse"
-* }
+* Test
+* Etienne
+* etienn.test@email.com
+* 0678910112
+* 56 Rue Des Tests, Paris, 75015
+* monMotDePasse
 * */
     const [nom, setNom] = useState("");
     const [prenom, setPrenom] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+    const [tel, setTel] = useState("");
     const [adresse, setAdresse] = useState("");
     const [mdp, setMdp] = useState("");
 
@@ -45,7 +39,7 @@ function Registration(props) {
                     "Prenom_client" : prenom,
                     "Date_inscription_client": currentDate,
                     "Mail_client" : email,
-                    "Telephone_client": phone,
+                    "Telephone_client": tel,
                     "Adresse_client": adresse,
                     "Mdp_client" : mdp,
                 },
@@ -71,6 +65,24 @@ function Registration(props) {
             <form onSubmit={handleSubmit}>
                 <ul className={"login-list"}>
                     <li>
+                        <label htmlFor="nom">Nom : </label>
+                        <input type="text"
+                               value={nom}
+                               onChange={(e) => setNom(e.target.value)}
+                               id="nom"
+                               required
+                               name="nom"/>
+                    </li>
+                    <li>
+                        <label htmlFor="prenom">Prénom : </label>
+                        <input type="text"
+                               value={prenom}
+                               onChange={(e) => setPrenom(e.target.value)}
+                               id="prenom"
+                               required
+                               name="prenom"/>
+                    </li>
+                    <li>
                         <label htmlFor="email">E-mail : </label>
                         <input type="email"
                                value={email}
@@ -78,6 +90,24 @@ function Registration(props) {
                                id="email"
                                required
                                name="mail"/>
+                    </li>
+                    <li>
+                        <label htmlFor="tel">Téléphone : </label>
+                        <input type="tel"
+                               value={tel}
+                               onChange={(e) => setTel(e.target.value)}
+                               id="tel"
+                               required
+                               name="tel"/>
+                    </li>
+                    <li>
+                        <label htmlFor="adresse">Adresse : </label>
+                        <input type="text"
+                               value={adresse}
+                               onChange={(e) => setAdresse(e.target.value)}
+                               id="adresse"
+                               required
+                               name="adresse"/>
                     </li>
                     <li>
                         <label htmlFor="password">Mot de passe : </label>
@@ -92,8 +122,7 @@ function Registration(props) {
                         <div>{errorMsg}</div> // structure d'affichage conditionnel
                     )}
                     <li className="button">
-                        <button type="submit">Connexion</button>
-                        <button><Link to={`/register`} className={"details-btn"}>S'inscrire</Link></button>
+                        <button type="submit">Valider l'inscription</button>
                     </li>
                 </ul>
             </form>
