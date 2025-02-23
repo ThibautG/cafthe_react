@@ -28,6 +28,21 @@ function Commands(props) {
     console.log(commands !== [])
     console.log(commands)
 
+    if (!commands || commands.length === 0) {
+        return (
+            <div>
+                <p>Oups...Il semblerait qua vous n'avez encore passé aucune commande chez nous.</p>
+                <Link to={`/profil`} className={"details-btn"}>
+                    Voir mon profil
+                </Link>
+
+                <Link to={`/`} className={"details-btn"}>
+                    Retour à l'accueil
+                </Link>
+            </div>
+        )
+    }
+
     return (
             <div>
                 <h3>Vos commandes</h3>
@@ -47,12 +62,12 @@ function Commands(props) {
                 </div>
 
                 <Link to={`/profil`} className={"details-btn"}>
-                Voir mon profil
-            </Link>
+                    Voir mon profil
+                </Link>
 
-            <Link to={`/`} className={"details-btn"}>
-                Retour à l'accueil
-            </Link>
+                <Link to={`/`} className={"details-btn"}>
+                    Retour à l'accueil
+                </Link>
         </div>
 
     );
