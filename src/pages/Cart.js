@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Card(props) {
+function Cart(props) {
     return (
         <div>C'est le panier</div>
     );
 }
 
-export default Card;
+export default Cart;
