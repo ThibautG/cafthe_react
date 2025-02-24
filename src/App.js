@@ -12,6 +12,7 @@ import Profil from "./pages/Profil";
 import Commands from "./pages/Commands";
 import CommandDetail from "./components/CommandDetail";
 import Registration from "./pages/Registration";
+import Card from "./pages/Card";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                         <Route path={"/commandes/clients/:id"} element={<Commands />} />
                         <Route path={"/commandes/:id"} element={<CommandDetail />} />
                         <Route path={"/register"} element={<Registration />} />
+                        <Route path={"/panier"} element={<Card />} />
                     </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
                     {/* Gestion des routes non trouvées */}
                     {/*<Route path="*" element={<NotFound />} />*/}
