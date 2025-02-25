@@ -37,6 +37,7 @@ export function CartProvider({ children }) {
     };*/
 
     const value = {
+        cart,
         addToCart,
 
     }
