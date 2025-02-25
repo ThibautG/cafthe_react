@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {CartContext} from "../context/CartContext";
 
 function Cart(props) {
+
     return (
-        <div>C'est le panier</div>
+        <div className={"panier"}>
+            <div>C'est le panier</div>
+        </div>
     );
 }
 
