@@ -13,29 +13,32 @@ import Commands from "./pages/Commands";
 import CommandDetail from "./components/CommandDetail";
 import Registration from "./pages/Registration";
 import Cart from "./pages/Cart";
+import {CartProvider} from "./context/CartContext";
 
 function App() {
   return (
         <AuthProvider>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Layout />}>
-                        <Route path={"/login"} element={<Login />} />
-                        <Route index element={<Home />} />
-                        <Route path={"/produit/:id"} element={<ProductDetails />} />
-                        <Route path={"/produits/cafes"} element={<Coffee />} />
-                        <Route path={"/produits/thes"} element={<Tea />} />
-                        <Route path={"/produits/accessoires"} element={<Accessories />} />
-                        <Route path={"/profil"} element={<Profil />} />
-                        <Route path={"/commandes/clients/:id"} element={<Commands />} />
-                        <Route path={"/commandes/:id"} element={<CommandDetail />} />
-                        <Route path={"/register"} element={<Registration />} />
-                        <Route path={"/panier"} element={<Cart />} />
-                    </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
-                    {/* Gestion des routes non trouvées */}
-                    {/*<Route path="*" element={<NotFound />} />*/}
-                </Routes>
-            </Router>
+            <CartProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<Layout />}>
+                            <Route path={"/login"} element={<Login />} />
+                            <Route index element={<Home />} />
+                            <Route path={"/produit/:id"} element={<ProductDetails />} />
+                            <Route path={"/produits/cafes"} element={<Coffee />} />
+                            <Route path={"/produits/thes"} element={<Tea />} />
+                            <Route path={"/produits/accessoires"} element={<Accessories />} />
+                            <Route path={"/profil"} element={<Profil />} />
+                            <Route path={"/commandes/clients/:id"} element={<Commands />} />
+                            <Route path={"/commandes/:id"} element={<CommandDetail />} />
+                            <Route path={"/register"} element={<Registration />} />
+                            <Route path={"/panier"} element={<Cart />} />
+                        </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
+                        {/* Gestion des routes non trouvées */}
+                        {/*<Route path="*" element={<NotFound />} />*/}
+                    </Routes>
+                </Router>
+            </CartProvider>
         </AuthProvider>
   );
 }
