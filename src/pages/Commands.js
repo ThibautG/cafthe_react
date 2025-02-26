@@ -50,7 +50,7 @@ function Commands(props) {
                     {commands.map((command) => (
                         <div className={"command"}>
                             <p>Identifiant commande : {command.Identifiant_commande}</p>
-                            <p>Date commande : {command.Date_commande}</p>
+                            <p>Date commande : {(command.Date_commande).split('T')[0]}</p>
                             <p>Montant TTC commande : {command.Montant_ttc_commande}€</p>
                             <p>Type commande : {command.Type_commande}</p>
                             <p>Statut commande : {command.Statut_commande}</p>

@@ -69,7 +69,7 @@ function CommandDetail(props) {
                     </div>)
                 )}
                 <div className={"command"}>
-                    <p>Date commande : {detail[0].Date_commande}</p>
+                    <p>Date commande : {(detail[0].Date_commande).split('T')[0]}</p>
                     {/*on utilise premier objet présent dans detail[] car la date et le total sont les mêmes partout*/}
                     <p>Montant total commande TTC : {detail[0].Montant_ttc_commande}€</p>
                     <p>Statut de la commande : {detail[0].Statut_commande}</p>
