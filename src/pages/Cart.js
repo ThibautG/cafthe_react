@@ -3,7 +3,7 @@ import {CartContext} from "../context/CartContext";
 import "../styles/Cart.css";
 
 function Cart(props) {
-    const { cart, addToCart, deleteCart } = useContext(CartContext) ;
+    const { cart, addToCart, deleteCart, removeFromCart } = useContext(CartContext) ;
     let totalPanier = 0;
     cart.map((item) => (totalPanier = totalPanier + item.Prix_ttc_produit * item.qtt));
     // console.log(totalPanier)
@@ -22,6 +22,7 @@ function Cart(props) {
                             <p>Prix total TTC
                                 : {(item.Prix_ttc_produit * item.qtt).toFixed(2)}€</p>
                             <button onClick={() => addToCart(item)}>+</button>
+                            <button onClick={() => removeFromCart(item)}>-</button>
                         </div>)
                     )}
                     <div className={"command"}>

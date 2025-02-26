@@ -24,7 +24,7 @@ export function CartProvider({ children }) {
     useEffect(() => {
         if (cart.length > 0) {
             localStorage.setItem('cartCafThe', JSON.stringify(cart))
-            console.log(localStorage.cartCafThe)
+            //console.log(localStorage.cartCafThe)
         }
     }, [cart]);
 
@@ -32,30 +32,43 @@ export function CartProvider({ children }) {
     const addToCart = (produit) => {
         // console.log(produit)
         // console.log(cart)
+        // copie du panier actuel
+        const nouveauCart = [...cart];
         // on vérifie si le produit sur lequel on a cliqué est déjà présent dans le panier
-        const produitSelectionne = cart.find((item) => item.Designation_produit === produit.Designation_produit)
+        const produitSelectionne = nouveauCart.find((item) => item.Designation_produit === produit.Designation_produit)
         // console.log(produitSelectionne)
         if (produitSelectionne) {
-            // si le produit on crée une copie du panier en ne mettant que les produits sur lesquels on n'a pas clique
-            const cartFiltreProduitSelectionne = cart.filter(
-                (item) => item.Designation_produit !== produit.Designation_produit
-            )
-            /*ensuite on modifie le panier en y ajoutant ce panier filter +
-            une ligne avec le produit sélectionné auquel on vient ajouter son ancienne qtt + 1*/
-            setCart([
-                ...cartFiltreProduitSelectionne,
-                { ...produit, qtt: produitSelectionne.qtt + 1 }
-            ])
+            // Si le produit existe, on incrémente sa quantité
+            produitSelectionne.qtt += 1;
         } else {
-            // sinon on ajoute au panier le produit sélectionné auquel on ajoute une qtt de 1
-            setCart([...cart, { ...produit, qtt: 1 }])
+            // Sinon, on l'ajoute au panier avec une qtt de 1
+            nouveauCart.push({ ...produit, qtt: 1 });
         }
+        // Mise à jour du panier
+        setCart(nouveauCart);
     }
 
     // fonction retirer du panier
-    /*const removeFromCart = () => {
+    const removeFromCart = (produit) => {
+        console.log(produit)
+        // console.log(cart)
+        // copie du panier actuel
+        const nouveauCart = [...cart];
+        // on stocke le produit depuis la copie du panier dans une nouvelle variable
+        const produitSelectionne = nouveauCart.find((item) => item.Designation_produit === produit.Designation_produit)
+        // console.log(produitSelectionne)
+        // On considère que le produit sélectionné est d'office présent dans le panier
+        if (produitSelectionne.qtt > 1) {
+            produitSelectionne.qtt -= 1;
+            // Mise à jour du panier
+            setCart(nouveauCart);
+        } else {
+            const cartSansProduit = nouveauCart.filter((item) => item.Designation_produit !== produit.Designation_produit)
+            setCart(cartSansProduit);
+        }
 
-    };*/
+
+    }
 
     // fonction vider panier
     const deleteCart = () => {
@@ -63,15 +76,16 @@ export function CartProvider({ children }) {
         setCart([]);
     };
 
-    // Observer les changements du panier (debug)
-    useEffect(() => {
+    // Observer les changements du panier
+    /*useEffect(() => {
         console.log("Cart mis à jour :", cart);
-    }, [cart]);
+    }, [cart]);*/
 
     const value = {
         cart,
         addToCart,
         deleteCart,
+        removeFromCart,
     }
 
 
