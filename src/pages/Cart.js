@@ -26,7 +26,7 @@ function Cart(props) {
                         </div>)
                     )}
                     <div className={"command"}>
-                        <p>Montant total panier : {totalPanier.toFixed(2)}</p>
+                        <p>Montant total panier : {totalPanier.toFixed(2)} €</p>
                         <button onClick={deleteCart}>Vider le panier</button>
                     </div>
 
