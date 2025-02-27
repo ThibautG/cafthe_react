@@ -2,21 +2,7 @@
 :root{
   --main-text-color: black;
 }
-
-!***************!
-#root {
-  padding-inline: 10%;
-}
-
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}*/
+*/
 
 /* --------RESET CSS---------- */
 /* http://meyerweb.com/eric/tools/css/reset/
