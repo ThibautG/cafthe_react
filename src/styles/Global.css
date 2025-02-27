@@ -2,3 +2,7 @@
 #root {
     padding-inline: 10%;
 }
+/* ---modif font-size du html pour utiliser rem en base 10--- */
+html {
+    font-size: 62.5%;
+}
