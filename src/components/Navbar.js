@@ -13,7 +13,7 @@ function Navbar(props) {
     return (
         <nav>
             <ul className={"navbar"}>
-                <li><Link to={`/`}>CafThé</Link></li>
+                <li className={"logo"}>CafThé{/*<Link to={`/`}>CafThé</Link>*/}</li>
                 <li><Link to={`/produits/cafes`}>Cafés</Link></li>
                 <li><Link to={`/produits/thes`}>Thés</Link></li>
                 <li><Link to={`/produits/accessoires`}>Accessoires</Link></li>
