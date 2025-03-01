@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 function Layout(props) {
     return (
         <div>
-            <Header />
+            {/*<Header />*/}
             <Navbar />
             {/* Outlet : là où s'affichent les pages enfants*/}
             <Outlet />
