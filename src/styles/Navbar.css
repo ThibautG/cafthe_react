@@ -7,4 +7,15 @@
     text-decoration: none;
 }
 
+nav {
+    width: 100%;
+    height: 15rem;
+    border-radius: 0px 0px 100px 100px;
+    background: rgba(255, 255, 255, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
+.logo {
+    font-family: Mayonice, Arial, Helvetica, sans-serif;
+    font-size: 4.8rem;
+}
