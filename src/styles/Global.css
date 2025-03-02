@@ -3,7 +3,11 @@
     --font-logo: Mayonice, Arial, Helvetica, sans-serif;
     --font-title: Louis George Cafe, Arial, Helvetica, sans-serif;
     --font-text: latoregular, Arial, Helvetica, sans-serif;
-    --color-main-text: #141414;
+    --font-size-nav-logo : 4.8rem;
+    --font-size-nav-h2 : 2rem;
+    --font-size-body : 1.6rem;
+    --color-text-main: #141414;
+    --color-text-secondary: #FFFFFF;
 }
 
 /* ---IDIOMATIC CSS--- */
@@ -18,13 +22,11 @@ html {
 
 body {
     font-family: var(--font-text);
-    font-size: 1.6rem;
+    font-size: var(--font-size-body);
     line-height: 150%;
-    color: #141414;
+    color: var(--color-text-main);
 }
 
-button {
-    font-family: var(--font-text);
-    font-size: 1.6rem;
-    border-radius: 30px;
+section {
+    padding-inline: 10%;
 }

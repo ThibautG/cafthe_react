@@ -3,10 +3,10 @@ import ProductList from "./ProductList";
 
 function Home(props) {
     return (
-        <div>
+        <section>
             <h1>Bienvenue la Team</h1>
             <ProductList />
-        </div>
+        </section>
     );
 }
 

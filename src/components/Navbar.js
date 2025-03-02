@@ -12,22 +12,24 @@ function Navbar(props) {
     };
     return (
         <nav>
-            <ul className={"navbar"}>
-                <li className={"logo"}>CafThé{/*<Link to={`/`}>CafThé</Link>*/}</li>
+            <div className={"nav-logo"}><Link to={`/`}>CafThé</Link></div>
+            <ul className={"navbar navbar-pages"}>
                 <li><Link to={`/produits/cafes`}>Cafés</Link></li>
                 <li><Link to={`/produits/thes`}>Thés</Link></li>
                 <li><Link to={`/produits/accessoires`}>Accessoires</Link></li>
+            </ul>
+            <ul className={"navbar navbar-connexion"}>
                 <li><Link to={`/panier`}>Panier</Link></li>
                 {/*<li><Link to={`/login`}>Connexion</Link></li>*/}
                 <li>
                     {isAuthenticated ? (
                         <>
-                            <span>Bonjour {user.prenom} {user.nom}</span>
-                            <Link to={`/profil`}>Mon Profil</Link>
-                            <button onClick={handleLogout}>Se déconnecter</button>
+                            {/*<span>Bonjour {user.prenom} {user.nom}</span>*/}
+                            <Link to={`/profil`}>Profil</Link>
+                            <button onClick={handleLogout}>Déconnexion</button>
                         </>
                     ) : (
-                        <Link to={`/login`}>Se Connecter</Link>
+                        <button><Link to={`/login`}>Connexion</Link></button>
                     )}
 
                 </li>
