@@ -1,18 +1,30 @@
-/*!***************!*/
-/*body {
-    padding-inline: 10%;
-}*/
+/*!* Variables CSS *!*/
+:root{
+    --font-logo: Mayonice, Arial, Helvetica, sans-serif;
+    --font-title: Louis George Cafe, Arial, Helvetica, sans-serif;
+    --font-text: latoregular, Arial, Helvetica, sans-serif;
+    --color-main-text: #141414;
+}
+
+/* ---IDIOMATIC CSS--- */
+/*  Positioning (position, z-index, top, right, bottom, left...)
+    Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
+    Other (background, color, font-family, font-size, text-align...)
+*/
 /* ---modif font-size du html pour utiliser rem en base 10--- */
 html {
     font-size: 62.5%;
 }
 
 body {
-    /* Positioning (position, z-index, top, right, bottom, left...) */
-    /* Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...) */
-    /* Other (background, color, font-family, font-size, text-align...) */
-    font-family: latoregular, Arial, Helvetica, sans-serif;
+    font-family: var(--font-text);
     font-size: 1.6rem;
     line-height: 150%;
     color: #141414;
+}
+
+button {
+    font-family: var(--font-text);
+    font-size: 1.6rem;
+    border-radius: 30px;
 }
