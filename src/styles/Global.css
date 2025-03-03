@@ -21,6 +21,12 @@ html {
 }
 
 body {
+    background-image:
+        url("/public/assets/images/round-high-left.png"),
+        url("/public/assets/images/round-high-right.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left -100px , right -100px ;
+    background-size: 40%, 30%;
     font-family: var(--font-text);
     font-size: var(--font-size-body);
     line-height: 150%;

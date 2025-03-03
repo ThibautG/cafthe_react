@@ -13,25 +13,22 @@ function Navbar(props) {
     return (
         <nav>
             <div className={"nav-logo"}><Link to={`/`}>CafThé</Link></div>
-            <ul className={"navbar navbar-pages"}>
+            <ul className={"navbar"}>
                 <li><Link to={`/produits/cafes`}>Cafés</Link></li>
                 <li><Link to={`/produits/thes`}>Thés</Link></li>
                 <li><Link to={`/produits/accessoires`}>Accessoires</Link></li>
-            </ul>
-            <ul className={"navbar navbar-connexion"}>
-                <li><Link to={`/panier`}>Panier</Link></li>
+                <li><Link className={"nav-cart-logo"} to={`/panier`}>{/*Panier*/}</Link></li>
                 {/*<li><Link to={`/login`}>Connexion</Link></li>*/}
                 <li>
                     {isAuthenticated ? (
                         <>
                             {/*<span>Bonjour {user.prenom} {user.nom}</span>*/}
-                            <Link to={`/profil`}>Profil</Link>
+                            <Link className={"nav-profil-logo"} to={`/profil`}>{/*Profil*/}</Link>
                             <button onClick={handleLogout}>Déconnexion</button>
                         </>
                     ) : (
                         <button><Link to={`/login`}>Connexion</Link></button>
                     )}
-
                 </li>
             </ul>
         </nav>

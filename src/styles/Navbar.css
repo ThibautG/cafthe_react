@@ -17,12 +17,18 @@ nav {
 
 .navbar {
     display: flex;
+    align-items: center;
+    gap: 20px;
     list-style: none;
     font-family: var(--font-title);
     font-size: var(--font-size-nav-h2);
 }
 
 .navbar a {
+    /*border: 1px solid black;*/
+    /*display: flex;*/
+    flex-direction: column;
+    /*justify-content: center;*/
     text-decoration: none;
     color: var(--color-text-main);
 }
@@ -30,7 +36,7 @@ nav {
 .navbar button {
     border: none;
     border-radius: 30px;
-    margin-left: 15px;
+    margin-left: 20px;
     padding: 5px 10px;
     color: var(--color-text-secondary);
     background-color: #0E492D;
@@ -52,18 +58,12 @@ nav {
     color: var(--color-text-main);
 }
 
-.navbar-pages {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    /*display: flex;
-    justify-content: center;*/
-    gap: 20px;
+.nav-cart-logo:before{
+    font-family: 'picto';
+    content: '\e800';
 }
 
-.navbar-connexion {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /*margin-left: auto;*/
+.nav-profil-logo:before{
+    font-family: 'picto';
+    content: '\e801';
 }
