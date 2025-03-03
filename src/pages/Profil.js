@@ -115,7 +115,7 @@ function Profil(props) {
 
 
     return (
-        <div className={"profil-details"}>
+        <section className={"profil-details"}>
             {/* image */}
             <h3>Bonjour {infos.Prenom_client} {infos.Nom_client}</h3>
             <p>E-mail : {infos.Mail_client}</p>
@@ -158,7 +158,7 @@ function Profil(props) {
             <Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>
                 Voir les commandes
             </Link>
-        </div>
+        </section>
     );
 }
 

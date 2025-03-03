@@ -25,6 +25,7 @@ function Accessories(props) {
     /*console.log(produits);*/
     if (isLoading) {
         return (
+            <section>
             <div className={"product-list"}>
                 {Array.from({length : accessory.length}).map((_,i) => (
                     <div key={i} className={"product-skeleton"}>
@@ -41,11 +42,12 @@ function Accessories(props) {
                     </div>
                 ))}
             </div>
+            </section>
         );
     }
 
     return (
-        <div>
+        <section>
             <h3>Liste des Accessoires</h3>
             <div className={"product-list"}>
                 {accessory.map((produit) => (
@@ -54,7 +56,7 @@ function Accessories(props) {
                     </div>)
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 

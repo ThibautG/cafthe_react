@@ -9,7 +9,7 @@ function Cart(props) {
     // console.log(totalPanier)
 
     return (
-        <div className={"panier"}>
+        <section className={"panier"}>
             <div>
                 <h3>Votre Panier</h3>
                 <div className={"cart-list"}>
@@ -35,7 +35,7 @@ function Cart(props) {
                 </Link>*/}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

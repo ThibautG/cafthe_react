@@ -44,7 +44,7 @@ function Commands(props) {
     }
 
     return (
-            <div>
+            <section>
                 <h3>Vos commandes</h3>
                 <div className={"command-list"}>
                     {commands.map((command) => (
@@ -68,7 +68,7 @@ function Commands(props) {
                 <Link to={`/`} className={"details-btn"}>
                     Retour à l'accueil
                 </Link>
-        </div>
+        </section>
 
     );
 }

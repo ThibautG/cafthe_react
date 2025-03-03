@@ -61,7 +61,7 @@ function Registration(props) {
     };
 
     return (
-        <div>
+        <section>
             <form onSubmit={handleSubmit}>
                 <ul className={"login-list"}>
                     <li>
@@ -126,7 +126,7 @@ function Registration(props) {
                     </li>
                 </ul>
             </form>
-        </div>
+        </section>
     );
 }
 

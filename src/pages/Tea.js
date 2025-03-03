@@ -25,6 +25,7 @@ function Tea(props) {
     /*console.log(produits);*/
     if (isLoading) {
         return (
+            <section>
             <div className={"product-list"}>
                 {Array.from({length : tea.length}).map((_,i) => (
                     <div key={i} className={"product-skeleton"}>
@@ -41,11 +42,12 @@ function Tea(props) {
                     </div>
                 ))}
             </div>
+            </section>
         );
     }
 
     return (
-        <div>
+        <section>
             <h3>Liste des Thés</h3>
             <div className={"product-list"}>
                 {tea.map((produit) => (
@@ -54,7 +56,7 @@ function Tea(props) {
                     </div>)
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 
