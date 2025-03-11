@@ -10,7 +10,7 @@ function Accessories(props) {
     useEffect(() => {
         const fetchAccessory = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/produits/accessoires");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/produits/accessoires`);
                 setAccessory(response.data);
             } catch (error) {
                 console.error("Erreur de chargement des accessoires", error);

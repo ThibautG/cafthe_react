@@ -14,7 +14,7 @@ function ProductList(props) {
     useEffect(() => {
         const fetchProduits = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/produits");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/produits`);
                 setProduits(response.data);
             } catch (error) {
                 console.error("Erreur de chargement des produits", error);

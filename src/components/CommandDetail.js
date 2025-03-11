@@ -14,7 +14,7 @@ function CommandDetail(props) {
         const fetchDetail = async () => {
             try {
                 // route get détail d'une commande avec son id
-                const response = await axios.get(`http://localhost:3001/api/commandes/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/commandes/${id}`);
                 setDetail(response.data);
             } catch (error) {
                 console.error("Erreur de chargement de la commande", error);

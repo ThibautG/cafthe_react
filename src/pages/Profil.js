@@ -42,14 +42,14 @@ function Profil(props) {
         /*console.log("Valeur de l'inputTelephone :", inputValueTelephone);*/
         try {
             const response = await axios.put(
-                `http://localhost:3001/api/clients/${user.id}`,
+                `${process.env.REACT_APP_API_URL}/api/clients/${user.id}`,
                 {
                     "Mail_client": inputValueMail,
                     "Telephone_client": inputValueTelephone,
                     "Adresse_client": inputValueAdresse,
                 }
             );
-            /*console.log(`http://localhost:3001/api/client/${user.id}`)*/
+            /*console.log(`${process.env.REACT_APP_API_URL}/api/client/${user.id}`)*/
             console.log("Réponse du serveur :", response.data);
 
             // On met à jour les infos avec les nouvelles données
@@ -65,7 +65,7 @@ function Profil(props) {
         e.preventDefault();
         try {
             const response = await axios.put(
-                `http://localhost:3001/api/login/${user.id}`,
+                `${process.env.REACT_APP_API_URL}/api/login/${user.id}`,
                 {
                     "oldMdp": inputValueOldPassword,
                     "newMdp": inputValueNewPassword,
@@ -93,8 +93,8 @@ function Profil(props) {
 
         const fetchInfos = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/clients/${user.id}`);
-                /*console.log(`http://localhost:3001/api/client/${user.id}`)*/
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/clients/${user.id}`);
+                /*console.log(`${process.env.REACT_APP_API_URL}/api/client/${user.id}`)*/
                 setInfos(response.data);
                 // on met à jour les inputs après avoir récupéré les infos
                 setInputValueMail(response.data.Mail_client || "");

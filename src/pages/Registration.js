@@ -33,7 +33,7 @@ function Registration(props) {
         setErrorMsg("");
 
         try {
-            const response = await axios.post("http://localhost:3001/api/register",
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/register`,
                 {
                     "Nom_client" : nom,
                     "Prenom_client" : prenom,

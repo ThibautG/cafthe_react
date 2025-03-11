@@ -14,7 +14,7 @@ function Commands(props) {
         const fetchProduits = async () => {
             try {
                 // route get de toutes les commandes d'un client
-                const response = await axios.get(`http://localhost:3001/api/commandes/clients/${user.id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/commandes/clients/${user.id}`);
                 setCommands(response.data);
             } catch (error) {
                 console.error("Erreur de chargement des produits", error);

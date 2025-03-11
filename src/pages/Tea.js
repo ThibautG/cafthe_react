@@ -10,7 +10,7 @@ function Tea(props) {
     useEffect(() => {
         const fetchTea = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/produits/thes");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/produits/thes`);
                 setTea(response.data);
             } catch (error) {
                 console.error("Erreur de chargement des thés", error);

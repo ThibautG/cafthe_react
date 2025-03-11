@@ -11,7 +11,7 @@ function Coffee(props) {
     useEffect(() => {
         const fetchCoffee = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/produits/cafes");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/produits/cafes`);
                 setCoffee(response.data);
             } catch (error) {
                 console.error("Erreur de chargement des cafés", error);
