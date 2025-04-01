@@ -11,7 +11,6 @@ function ProductDetails(props) {
         const fetchProduits = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/produit/${id}`);
-                /*console.log(`${process.env.REACT_APP_API_URL}/api/produit/${id}`)*/
                 setProduit(response.data);
             } catch (error) {
                 console.error("Erreur de chargement du produit", error);
