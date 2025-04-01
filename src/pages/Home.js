@@ -5,7 +5,7 @@ function Home(props) {
     return (
         <section>
             <h1>Bienvenue la Team</h1>
-            <ProductList />
+            <ProductList routeAPI={"/api/produits"} />
         </section>
     );
 }

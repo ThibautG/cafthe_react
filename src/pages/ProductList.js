@@ -7,14 +7,14 @@ import "../styles/ProductList.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-function ProductList(props) {
+function ProductList({routeAPI}) {
     const [produits, setProduits] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchProduits = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/produits`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}${routeAPI}`);
                 setProduits(response.data);
             } catch (error) {
                 console.error("Erreur de chargement des produits", error);
@@ -24,7 +24,7 @@ function ProductList(props) {
         };
 
         void fetchProduits();
-    }, []);
+    }, [routeAPI]);
 
     /*console.log(produits);*/
     if (isLoading) {
@@ -50,7 +50,7 @@ function ProductList(props) {
 
     return (
         <div>
-            <h3>Liste des produits</h3>
+            {/*<h3>Liste des produits</h3>*/}
             <div className={"product-list"}>
                 {produits.map((produit) => (
                     <div className={"product"}>
