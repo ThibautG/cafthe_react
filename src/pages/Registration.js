@@ -31,7 +31,6 @@ function Registration(props) {
     const handleSubmit = async (e) => { // fonction asynchrone car on va aller chercher les données dans l'API
         e.preventDefault();
         setErrorMsg("");
-
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/register`,
                 {
@@ -44,10 +43,7 @@ function Registration(props) {
                     "Mdp_client" : mdp,
                 },
             );
-            console.log(response.data);
-
-
-            // redirection du client vers une page
+            // redirection du client vers page login
             alert("Inscription réussie. Veuillez vous connecter.")
             navigate("/login");
         } catch (error) {
