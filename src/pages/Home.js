@@ -4,8 +4,8 @@ import ProductList from "./ProductList";
 function Home(props) {
     return (
         <section>
-            <h1>Bienvenue la Team</h1>
-            <ProductList routeAPI={"/api/produits"} />
+            <h1>“CafThé"<br/>"Des arômes, du sens, des valeurs.”</h1>
+            <ProductList routeAPI={"/api/produits/highlighted"} />
         </section>
     );
 }
