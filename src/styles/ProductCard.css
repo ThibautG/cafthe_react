@@ -5,3 +5,7 @@
 */
 
 
+.product-card a {
+    text-decoration: none;
+    color: var(--color-text-main);
+}

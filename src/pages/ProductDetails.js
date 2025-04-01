@@ -24,7 +24,7 @@ function ProductDetails(props) {
 
     return (
         <div className={"product-details"}>
-            {/* image */}
+            <img src={produit.url_img_produit} alt={"produit"}/>
             <h3>Désignation : {produit.Designation_produit}</h3>
             <p>Description : {produit.Description_produit}</p>
             <p>Conditionnement : {produit.Type_conditionnement}</p>
