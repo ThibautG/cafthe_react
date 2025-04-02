@@ -1,0 +1,20 @@
+/* ---IDIOMATIC CSS--- */
+/*  Positioning (position, z-index, top, right, bottom, left...)
+    Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
+    Other (background, color, font-family, font-size, text-align...)
+*/
+
+.baseline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-logo);
+    font-size: var(--font-size-baseline);
+}
+
+.wrap-baseline {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8rem;
+    /*padding-bottom: 16rem;*/
+}

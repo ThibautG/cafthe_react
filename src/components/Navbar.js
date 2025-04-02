@@ -17,7 +17,9 @@ function Navbar(props) {
                 <li><Link to={`/produits/cafes`}>Cafés</Link></li>
                 <li><Link to={`/produits/thes`}>Thés</Link></li>
                 <li><Link to={`/produits/accessoires`}>Accessoires</Link></li>
-                <li><Link className={"nav-cart-logo"} to={`/panier`}>{/*Panier*/}</Link></li>
+                <li><Link className={"nav-cart-logo"}
+                          to={`/panier`}
+                          aria-label={"Panier"}>{/*Panier*/}</Link></li>
                 {/*<li><Link to={`/login`}>Connexion</Link></li>*/}
                 <li>
                     {isAuthenticated ? (
