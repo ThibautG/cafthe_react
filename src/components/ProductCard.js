@@ -10,6 +10,7 @@ function ProductCard({produit}) {
         <div className={"product-card"}>
             <img src={produit.url_img_produit} alt={"produit"}/>
             <h3>{produit.Designation_produit}</h3>
+            <p>{produit.Description_courte_produit}</p>
             <p>{produit.Prix_ttc_produit} €</p>
             <button onClick={() => addToCart(produit) }>Ajouter au panier</button>
             <p><Link to={`/produit/${produit.Identifiant_produit}`} className={"details-btn"}>
