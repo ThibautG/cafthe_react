@@ -49,7 +49,7 @@ function ProductList({routeAPI}) {
     }
 
     return (
-        <div>
+        <React.Fragment>
             {/*<h3>Liste des produits</h3>*/}
             <div className={"product-list"}>
                 {produits.map((produit) => (
@@ -58,7 +58,7 @@ function ProductList({routeAPI}) {
                     </div>)
                 )}
             </div>
-        </div>
+        </React.Fragment>
     );
 }
 
