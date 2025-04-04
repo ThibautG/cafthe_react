@@ -4,6 +4,14 @@
     Other (background, color, font-family, font-size, text-align...)
 */
 
+/* -------------------------------------- */
+/* ---------- Section Highlights ---------- */
+/* -------------------------------------- */
+
+.home-highlights {
+    padding-bottom: 17rem;
+}
+
 .baseline {
     display: flex;
     flex-direction: column;
@@ -17,4 +25,128 @@
     justify-content: flex-end;
     padding-top: 8rem;
     /*padding-bottom: 16rem;*/
+}
+
+/*.highlights-title {
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-title);
+    color: var(--color-text-main);
+}*/
+
+/* -------------------------------------- */
+/* ---------- Section Articles ---------- */
+/* -------------------------------------- */
+.home-articles {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-light-grey);
+    gap: 2rem;
+}
+
+.header-articles {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-articles h2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h2);
+    text-align: center;
+}
+
+.articles-list {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 6rem;
+}
+
+.articles-list article {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.articles-list article:hover {
+    transform: translateY(-5px);
+}
+
+.articles-list h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tag {
+    font-size: 0.9rem;
+    color: var(--color-dark-brown);
+}
+
+.articles-big {
+    display: flex;
+    width: 66%;
+    gap: 2rem;
+}
+
+.articles-big article {
+    width: 50%;
+}
+
+.articles-small {
+    display: flex;
+    flex-direction: column;
+    width: 34%;
+    gap: 1rem;
+}
+
+.cta-articles {
+    padding: 1.2rem 3.2rem;
+    background-color: var(--color-dark-orange);
+    color: var(--color-text-main);
+    border-radius: 3rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-articles:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-light-orange);
+}
+
+/* -------------------------------------- */
+/* ---------- Section Quiz ---------- */
+/* -------------------------------------- */
+
+.home-quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem 0;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.home-quiz h2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h2);
+    padding-bottom: 3rem;
+}
+
+.quiz-btn {
+    padding: 0.75rem 2rem;
+    font-size: var(--font-text);
+    background-color: var(--accent-color, #e57c23);
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-btn:hover {
+    background-color: var(--accent-color-dark, #b85c1c);
 }

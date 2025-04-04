@@ -81,11 +81,19 @@ export function CartProvider({ children }) {
         console.log("Cart mis à jour :", cart);
     }, [cart]);*/
 
+    // calcul du nombre total d'articles dans le panier
+    const totalItems = cart.reduce((total, item) => total + item.qtt, 0);
+
+    // calcul du prix TTC total du panier
+    const totalPriceTTC = cart.reduce((total, item) => total + item.qtt * parseFloat(item.Prix_ttc_produit), 0);
+
     const value = {
         cart,
         addToCart,
         deleteCart,
         removeFromCart,
+        totalItems,
+        totalPriceTTC,
     }
 
 

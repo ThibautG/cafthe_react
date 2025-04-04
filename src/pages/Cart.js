@@ -3,10 +3,10 @@ import {CartContext} from "../context/CartContext";
 import "../styles/Cart.css";
 
 function Cart(props) {
-    const { cart, addToCart, deleteCart, removeFromCart } = useContext(CartContext) ;
-    let totalPanier = 0;
+    const { cart, addToCart, deleteCart, removeFromCart, totalItems, totalPriceTTC } = useContext(CartContext) ;
+    /*let totalPanier = 0;
     cart.map((item) => (totalPanier = totalPanier + item.Prix_ttc_produit * item.qtt));
-    // console.log(totalPanier)
+    // console.log(totalPanier)*/
 
     return (
         <section className={"panier"}>
@@ -26,7 +26,7 @@ function Cart(props) {
                         </div>)
                     )}
                     <div className={"command"}>
-                        <p>Montant total panier : {totalPanier.toFixed(2)} €</p>
+                        <p>Montant total panier : {totalPriceTTC} €</p>
                         <button onClick={deleteCart}>Vider le panier</button>
                     </div>
 

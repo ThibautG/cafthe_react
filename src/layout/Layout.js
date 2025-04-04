@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 function Layout(props) {
     return (
-        <div>
+        <div className={"background-shapes"}>
             {/*<Header />*/}
             <Navbar />
             {/* Outlet : là où s'affichent les pages enfants*/}

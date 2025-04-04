@@ -37,11 +37,12 @@ nav {
     border: none;
     border-radius: 30px;
     margin-left: 20px;
-    padding: 5px 10px;
+    padding: 1.2rem 3.2rem;
     color: var(--color-text-secondary);
-    background-color: #0E492D;
+    background-color: var(--color-dark-green);
     font-family: var(--font-title);
     font-size: var(--font-size-nav-h2);
+    cursor: pointer;
 }
 
 .navbar button a {

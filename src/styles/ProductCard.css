@@ -4,7 +4,12 @@
     Other (background, color, font-family, font-size, text-align...)
 */
 .product-card {
-    padding-inline: 10%;
+    /*padding-inline: 2rem;*/
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
 }
 
 .product-card a {
@@ -13,13 +18,29 @@
 }
 
 .product-image {
-    position: relative;
-    top: -8rem; /* Fait remonter l’image */
+    position: absolute;
+    top: -6rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
 }
 
 .product-image img {
-    display: block;
-    margin: 0 auto;
+    /*
+    width: 150px;
+    */
+    height: auto;
+}
+
+.product-content {
+    padding-inline: 2rem;
+    padding-bottom: 2rem;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 1;
 }
 
 .product-info {
@@ -30,7 +51,8 @@
 .product-info h3 {
     font-family: var(--font-title);
     font-size : 2.4rem;
-    text-align: center;
+    /*text-align: center;*/
+    padding-left: 1rem;
     padding-bottom: 1rem;
 }
 
@@ -40,15 +62,25 @@
     padding-bottom: 1rem;
 }
 
+.product-price p:first-of-type {
+    font-style: italic;
+}
+
+.product-price p:last-of-type {
+    font-weight: bold;
+}
+
 .product-btn {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .product-btn button {
     font-family: var(--font-text);
     font-size: var(--font-size-body);
-    padding: 1rem;
+    padding: 1.2rem 3.2rem;
     border-radius: 30px;
     background-color: var(--color-dark-grey);
+    cursor: pointer;
 }
