@@ -16,10 +16,10 @@ function Navbar(props) {
         <nav>
             <div className={"nav-logo"}><Link to={`/`}>CafThé</Link></div>
             <ul className={"navbar"}>
-                <li><Link to={`/produits/cafes`}>Cafés</Link></li>
-                <li><Link to={`/produits/thes`}>Thés</Link></li>
-                <li><Link to={`/produits/accessoires`}>Accessoires</Link></li>
-                <li><Link className={"nav-cart-logo"}
+                <li className={"navbar-links"}><Link to={`/produits/cafes`}>Cafés</Link></li>
+                <li className={"navbar-links"}><Link to={`/produits/thes`}>Thés</Link></li>
+                <li className={"navbar-links"}><Link to={`/produits/accessoires`}>Accessoires</Link></li>
+                <li className={"navbar-links"}><Link className={"nav-cart-logo"}
                           to={`/panier`}
                           aria-label={"Panier"}>
                         {totalItems > 0 ? `(${totalItems})` : ""}
@@ -27,7 +27,7 @@ function Navbar(props) {
                     </Link>
                 </li>
                 {/*<li><Link to={`/login`}>Connexion</Link></li>*/}
-                <li>
+                <li className={"navbar-button"}>
                     {isAuthenticated ? (
                         <>
                             {/*<span>Bonjour {user.prenom} {user.nom}</span>*/}
@@ -37,7 +37,7 @@ function Navbar(props) {
                             <button onClick={handleLogout}>Déconnexion</button>
                         </>
                     ) : (
-                        <button><Link to={`/login`}>Connexion</Link></button>
+                        <Link to={`/login`} className={"navbar-login-btn"}>Connexion</Link>
                     )}
                 </li>
             </ul>
