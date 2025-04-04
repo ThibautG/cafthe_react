@@ -118,6 +118,11 @@ nav {
     font-size: var(--font-size-nav-h2);
 }
 
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
 .cart-icon::before {
     font-family: 'picto';
     content: '\e800'; /* ton icône panier */
@@ -125,36 +130,24 @@ nav {
     color: var(--color-text-main);
 }
 
-.cart-badges {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.2rem
-}
-
 .cart-item {
+    position: absolute;
+    top: -1.2rem;
+    right: -1rem;
+    width: 1.8rem;
+    height: 1.8rem;
     background-color: var(--color-dark-green);
     color: var(--color-light-orange);
     font-size: 1.2rem;
-    width: 2rem;
-    height: 2rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 1;
     font-weight: bold;
+    z-index: 2;
 }
 
-.cart-price {
-    font-size: 1.2rem;
-    color: var(--color-dark-green);
-    font-weight: bold;
-}
 
-.cart-placeholder {
-    visibility: hidden;
-}
 
 
 .nav-profil-logo:before{

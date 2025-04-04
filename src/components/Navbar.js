@@ -21,15 +21,11 @@ function Navbar(props) {
                 <li className={"navbar-links"}><Link to={`/produits/accessoires`}>Accessoires</Link></li>
                 <li className={"navbar-links"}>
                     <Link className={"nav-cart-logo"} to={`/panier`} aria-label={"Panier"}>
-                        <span className={"cart-icon"}></span>
-                        <div className={"cart-badges"}>
-                            {totalItems > 0 && (
-                                <span className={"cart-item"}>{totalItems}</span>
-                            )}
-                            {totalPriceTTC > 0 && (
-                                /*<span className={"cart-price"}>{totalPriceTTC} €</span>*/
-                                <span className={"cart-price cart-placeholder"}>.</span>
-                            )}
+                        <div className={"cart-icon-container"}>
+                            <span className={"cart-icon"}></span>
+                                {totalItems > 0 && (
+                                    <span className={"cart-item"}>{totalItems}</span>
+                                )}
                         </div>
                     </Link>
                 </li>
