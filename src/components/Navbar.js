@@ -19,21 +19,25 @@ function Navbar(props) {
                 <li className={"navbar-links"}><Link to={`/produits/cafes`}>Cafés</Link></li>
                 <li className={"navbar-links"}><Link to={`/produits/thes`}>Thés</Link></li>
                 <li className={"navbar-links"}><Link to={`/produits/accessoires`}>Accessoires</Link></li>
-                <li className={"navbar-links"}><Link className={"nav-cart-logo"}
-                          to={`/panier`}
-                          aria-label={"Panier"}>
-                        {totalItems > 0 ? `(${totalItems})` : ""}
-                        {totalPriceTTC > 0 ? `(${totalPriceTTC} €)` : ""}
+                <li className={"navbar-links"}>
+                    <Link className={"nav-cart-logo"} to={`/panier`} aria-label={"Panier"}>
+                        <span className={"cart-icon"}></span>
+                        <div className={"cart-badges"}>
+                            {totalItems > 0 && (
+                                <span className={"cart-item"}>{totalItems}</span>
+                            )}
+                            {totalPriceTTC > 0 && (
+                                /*<span className={"cart-price"}>{totalPriceTTC} €</span>*/
+                                <span className={"cart-price cart-placeholder"}>.</span>
+                            )}
+                        </div>
                     </Link>
                 </li>
-                {/*<li><Link to={`/login`}>Connexion</Link></li>*/}
                 <li className={"navbar-button"}>
                     {isAuthenticated ? (
                         <>
                             {/*<span>Bonjour {user.prenom} {user.nom}</span>*/}
-                            <Link className={"nav-profil-logo"}
-                                  to={`/profil`}
-                                  aria-label={"Profil"}>{/*Profil*/}</Link>
+                            <Link className={"nav-profil-logo"} to={`/profil`} aria-label={"Profil"}></Link>
                             <button onClick={handleLogout}>Déconnexion</button>
                         </>
                     ) : (
