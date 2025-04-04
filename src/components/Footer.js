@@ -40,12 +40,11 @@ function Footer(props) {
                             <i className={"icon pinterest"}></i>
                         </a>
                     </div>
-                    <a href={"mailto:contact@cafthe.fr"} className={"contact-button"}>Écrivez-nous</a>
+                    <a href={"mailto:contact@cafthe.fr"} className={"contact-btn"}>Écrivez-nous</a>
 
                 </div>
             </div>
             <div className={"footer-links"}>
-                <Link to={"/faq"}>FAQ</Link>
                 <Link to={"/cgv"}>CGV</Link>
                 <Link to={"/cgu"}>CGU</Link>
                 <Link to={"/rgpd"}>RGPD</Link>

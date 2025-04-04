@@ -69,14 +69,12 @@ footer {
 /* ----------------------------------- */
 
 .footer-wrapper {
-    border: 1px solid black;
     padding: 6rem 10%;
     display: flex;
     gap: 2rem;
 }
 
 .footer-about {
-    border: 1px solid blue;
     width: 50%;
 }
 
@@ -85,11 +83,10 @@ footer {
 }
 
 .footer-socials {
-    border: 1px solid green;
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 2rem;
 }
@@ -104,7 +101,21 @@ footer {
     gap: 3rem;
 }
 
-.icon:before {
+.contact-btn {
+    padding: 1.2rem 3.2rem;
+    background-color: var(--color-dark-orange);
+    color: var(--color-text-main);
+    border-radius: 3rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-light-orange);
+}
+
+.icon {
     /*border: 1px solid black;
     border-radius: 3rem;
     padding: 0.5rem;*/
@@ -117,6 +128,11 @@ footer {
     border-radius: 50%;
     font-size: 1.5rem;
     gap: 3rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.icon:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-light-orange);
 }
 
 .facebook:before {
@@ -132,4 +148,28 @@ footer {
 .pinterest:before {
     font-family: 'picto';
     content: '\f312';
+}
+
+
+/* ----------------------------------- */
+/* ---------- Links ---------- */
+/* ----------------------------------- */
+
+.footer-links {
+    border-top: 1px solid var(--color-dark-grey);
+    padding-inline: 10%;
+    padding-block: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-dark-green);
+    box-shadow: inset 0 -0.5px 0 0 var(--color-dark-green);
 }

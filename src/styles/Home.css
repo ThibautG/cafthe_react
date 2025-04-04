@@ -148,4 +148,5 @@
 
 .quiz-btn:hover {
     background-color: var(--color-text-main);
-    color: var(--color-light-orange);}
+    color: var(--color-light-orange);
+}
