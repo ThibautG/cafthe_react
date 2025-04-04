@@ -1,0 +1,135 @@
+/* ---IDIOMATIC CSS--- */
+/*  Positioning (position, z-index, top, right, bottom, left...)
+    Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
+    Other (background, color, font-family, font-size, text-align...)
+*/
+
+footer {
+    /*
+    padding: 6rem 10%;
+    */
+}
+
+/* -------------------------------- */
+/* ---------- Newsletter ---------- */
+/* -------------------------------- */
+
+.footer-newsletter {
+    padding: 6rem 10%;
+    background-color: var(--color-light-grey);
+    text-align: center;
+}
+
+.footer-newsletter h2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h2);
+    padding-bottom: 3rem;
+}
+
+.footer-newsletter p {
+    padding-bottom: 1.5rem;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.newsletter-form input{
+    width: 50%;
+    height: 3.2rem;
+    padding-left: 3.2rem;
+    border-radius: 3rem;
+    border: none;
+}
+
+.newsletter-form button {
+    padding: 1.2rem 3.2rem;
+    background-color: var(--color-light-green);
+    color: var(--color-text-main);
+    border-radius: 3rem;
+    border: none;
+    text-decoration: none;
+    font-family: var(--font-text);
+    font-size: var(--font-size-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-light-orange);
+}
+
+
+
+/* ----------------------------------- */
+/* ---------- About&Socials ---------- */
+/* ----------------------------------- */
+
+.footer-wrapper {
+    border: 1px solid black;
+    padding: 6rem 10%;
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-about {
+    border: 1px solid blue;
+    width: 50%;
+}
+
+.footer-about p:first-of-type {
+    padding-bottom: 1.5rem;
+}
+
+.footer-socials {
+    border: 1px solid green;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-socials a {
+    text-decoration: none;
+    color: var(--color-text-main);
+}
+
+.footer-icons {
+    display: flex;
+    gap: 3rem;
+}
+
+.icon:before {
+    /*border: 1px solid black;
+    border-radius: 3rem;
+    padding: 0.5rem;*/
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    gap: 3rem;
+}
+
+.facebook:before {
+    font-family: 'picto';
+    content: '\f09a';
+}
+
+.instagram:before {
+    font-family: 'picto';
+    content: '\f16d';
+}
+
+.pinterest:before {
+    font-family: 'picto';
+    content: '\f312';
+}
