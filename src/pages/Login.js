@@ -44,37 +44,42 @@ function Login(props) {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <ul className={"login-list"}>
-                    <li>
-                        <label htmlFor="email">E-mail : </label>
-                        <input type="email"
-                               value={email}
-                               onChange={(e) => setEmail(e.target.value)}
-                               id="email"
-                               required
-                               name="mail"/>
-                    </li>
-                    <li>
-                        <label htmlFor="password">Mot de passe : </label>
-                        <input type="password"
-                               value={mdp}
-                               onChange={(e) => setMdp(e.target.value)}
-                               id="password"
-                               required
-                               name="password"/>
-                    </li>
-                    {errorMsg && (
-                        <div>{errorMsg}</div> // structure d'affichage conditionnel
-                    )}
-                    <li className="button">
-                        <button type="submit">Connexion</button>
-                        <button><Link to={`/register`} className={"details-btn"}>S'inscrire</Link></button>
-                    </li>
-                </ul>
-            </form>
-        </div>
+        <section className={"section-login"}>
+            <h1>Connexion</h1>
+            <p className={"login-subtitle"}>Accédez à votre espace client en toute simplicité.</p>
+
+            {errorMsg && (<p className={"login-error"}>{errorMsg}</p>)}
+
+            <div className={"login-box"}>
+                <form onSubmit={handleSubmit}>
+                    <ul className={"login-list"}>
+                        <li>
+                            <label htmlFor={"email"}>E-mail : </label>
+                            <input type={"email"}
+                                   value={email}
+                                   onChange={(e) => setEmail(e.target.value)}
+                                   id={"email"}
+                                   required
+                                   name={"mail"}/>
+                        </li>
+                        <li>
+                            <label htmlFor={"password"}>Mot de passe : </label>
+                            <input type={"password"}
+                                   value={mdp}
+                                   onChange={(e) => setMdp(e.target.value)}
+                                   id={"password"}
+                                   required
+                                   name={"password"}/>
+                        </li>
+
+                        <li className={"login-actions"}>
+                            <button type={"submit"} className={"login-primary-btn"}>Connexion</button>
+                            <Link to={`/register`} className={"login-secondary-btn"}>Créer un compte</Link>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </section>
     );
 }
 
