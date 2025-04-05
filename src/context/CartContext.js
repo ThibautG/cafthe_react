@@ -85,7 +85,8 @@ export function CartProvider({ children }) {
     const totalItems = cart.reduce((total, item) => total + item.qtt, 0);
 
     // calcul du prix TTC total du panier
-    const totalPriceTTC = cart.reduce((total, item) => total + item.qtt * parseFloat(item.Prix_ttc_produit), 0);
+    const totalPriceTTC = parseFloat(cart.reduce((total, item) =>
+        total + item.qtt * parseFloat(item.Prix_ttc_produit), 0).toFixed(2));
 
     const value = {
         cart,

@@ -1,0 +1,220 @@
+/* ---IDIOMATIC CSS--- */
+/*  Positioning (position, z-index, top, right, bottom, left...)
+    Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
+    Other (background, color, font-family, font-size, text-align...)
+*/
+
+.cart {
+    min-height: 80rem;
+}
+
+.cart h1 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h2);
+    color: var(--color-text-main);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cart h1::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin: 1rem 9rem 0;
+    background-color: var(--color-dark-green);
+}
+
+.cart-full {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.cart-list {
+    /*flex: 1 1 60%;*/
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cart-summary {
+    /*flex: 1 1 35%;*/
+    background-color: var(--color-light-grey);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.cart-summary h2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h2);
+    margin-bottom: 3rem;
+    color: var(--color-text-main);
+}
+
+.cart-summary p {
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+.cart-summary p:last-of-type {
+    /*text-align: right*/;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: bold;
+    font-size: var(--font-size-nav-h2);
+    color: var(--color-dark-green);
+}
+
+.cart-summary-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cart-summary-actions button {
+    padding: 1.2rem 3.2rem;
+    border: 1px solid var(--color-dark-green);
+    border-radius: 30px;
+    background-color: var(--color-dark-green);
+    color: var(--color-light-orange);
+    font-family: var(--font-title);
+    font-size: var(--font-size-body);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-summary-actions button:hover {
+    background-color: var(--color-light-orange);
+    color: var(--color-dark-green);
+}
+
+
+.cart-product {
+    display: flex;
+    gap: 6rem;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--color-dark-green);
+    padding-bottom: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.cart-product-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-product-image img {
+    width: 10rem;
+    height: auto;
+    object-fit: cover;
+}
+
+.cart-product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 130px;
+}
+
+.cart-product-info h2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-nav-h2);
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+.cart-product-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cart-product-details {
+    display: flex;
+    gap: 6rem;
+}
+
+
+.cart-product-qtt {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.cart-product-qtt-btn {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.cart-product-qtt-btn button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    font-style: var(--font-text);
+    background-color: var(--color-dark-orange);
+    color: var(--color-dark-green);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-product-qtt-btn button:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-light-orange);
+}
+
+.cart-details-btn {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-text-main);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.cart-details-btn:hover {
+    color: var(--color-dark-green);
+    transform: scale(1.1);
+}
+
+
+.cart-list-footer {
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+}
+
+.cart-list-footer button {
+    padding: 1.2rem 3.2rem;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--color-dark-orange);
+    color: var(--color-text-main);
+    font-family: var(--font-title);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-list-footer button:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-light-orange);
+}
+
+
+
+
+

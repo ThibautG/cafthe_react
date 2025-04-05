@@ -67,3 +67,11 @@ body {
 section {
     padding-inline: 10%;
 }
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
