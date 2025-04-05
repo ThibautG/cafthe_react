@@ -108,14 +108,24 @@
     /*flex: 1 1 35%;*/
     background-color: var(--color-light-grey);
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius: 3rem;
 }
 
 .cart-summary h2 {
     font-family: var(--font-title);
     font-size: var(--font-size-h2);
+    margin-top: 1rem;
     margin-bottom: 3rem;
     color: var(--color-text-main);
+}
+
+.cart-summary h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-dark-green);
+    margin: 1.5rem 6rem 0;
 }
 
 .cart-summary p {
@@ -254,7 +264,6 @@
     color: var(--color-dark-green);
     transform: scale(1.1);
 }
-
 
 .cart-list-footer {
     padding-top: 1rem;

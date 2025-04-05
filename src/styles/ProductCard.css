@@ -119,11 +119,12 @@
     color: var(--color-dark-green) ;
 }
 
-.details-btn {
+.product-content .product-btn .details-btn {
     display: inline-block;
     transition: transform 0.3s ease;
 }
 
-.details-btn:hover {
+.product-content .product-btn .details-btn:hover {
     transform: scale(1.1);
+    color: var(--color-text-secondary);
 }

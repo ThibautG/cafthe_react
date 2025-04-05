@@ -2,9 +2,23 @@ import React, {useContext} from 'react';
 import {CartContext} from "../context/CartContext";
 import "../styles/Cart.css";
 import {Link} from "react-router-dom";
+import ProductDetails from "../components/ProductDetails";
+import { useState } from "react";
+
 
 function Cart(props) {
     const { cart, addToCart, deleteCart, removeFromCart, totalItems, totalPriceTTC } = useContext(CartContext) ;
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [isClosing, setIsClosing] = useState(false);
+
+    const handleClose = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            setSelectedProduct(null);
+            setIsClosing(false);
+        }, 300);
+    };
+
     /*let totalPanier = 0;
     cart.map((item) => (totalPanier = totalPanier + item.Prix_ttc_produit * item.qtt));
     // console.log(totalPanier)*/
@@ -33,10 +47,19 @@ function Cart(props) {
                                 <div className={"cart-product"} key={item.Identifiant_produit}>
                                     <div className={"cart-product-image"}>
                                     <img src={item.url_img_produit} alt={item.Designation_produit}/>
-                                        <Link to={`/produit/${item.Identifiant_produit}`}
+                                        <Link to={"#"}
+                                              onClick={(e) => {
+                                                  e.preventDefault();
+                                                  setSelectedProduct(item);
+                                              }}
                                               className={"cart-details-btn"}>
                                             Voir détails
                                         </Link>
+                                        <ProductDetails
+                                            produit={selectedProduct}
+                                            onClose={handleClose}
+                                            isClosing={isClosing}
+                                        />
                                     </div>
                                     <div className={"cart-product-info"}>
                                         <h2>{item.Designation_produit}</h2>
