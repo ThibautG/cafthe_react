@@ -12,7 +12,7 @@
     font-family: var(--font-title);
     font-size: var(--font-size-baseline);
     color: var(--color-text-main);
-    padding-top: 6rem;
+    padding-top: 4rem;
     padding-bottom: 0.5rem;
     text-align: center;
 }
