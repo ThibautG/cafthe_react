@@ -11,13 +11,20 @@ function Cart(props) {
 
     return (
         <section className={"cart"}>
-                <h1>Votre Panier</h1>
+                <h1 className={"cart-title"}>Votre Panier</h1>
+                <p className={"cart-subtitle"}>Un petit clic de plus, un grand moment de bonheur.</p>
                 {cart.length === 0 ? (
                     <div className={"cart-empty"}>
-                        <p>Votre panier est vide pour le moment.</p>
-                        <Link to="/produits/cafes" className={"cart-back-btn"}>
-                            Découvrir nos cafés
-                        </Link>
+                        <div className={"cart-empty-banner"}>
+                            <h2>Votre panier est vide...</h2>
+                            <p>Mais l’aventure aromatique ne fait que commencer !</p>
+                            <div className={"cart-empty-links"}>
+                                <Link to={"/produits/cafes"}>Explorer les cafés</Link>
+                                <Link to={"/produits/thes"}>Découvrir les thés</Link>
+                                <Link to={"/produits/accessoires"}>Voir les accessoires</Link>
+                            </div>
+                        </div>
+
                     </div>
                 ) : (
                     <div className={"cart-full"}>
@@ -25,7 +32,7 @@ function Cart(props) {
                             {cart.map((item) => (
                                 <div className={"cart-product"} key={item.Identifiant_produit}>
                                     <div className={"cart-product-image"}>
-                                        <img src={item.url_img_produit} alt={item.Designation_produit}/>
+                                    <img src={item.url_img_produit} alt={item.Designation_produit}/>
                                         <Link to={`/produit/${item.Identifiant_produit}`}
                                               className={"cart-details-btn"}>
                                             Voir détails
@@ -47,8 +54,8 @@ function Cart(props) {
                                             <ul className={"cart-product-price"}>
                                                 <li>Prix unitaire : {item.Prix_ttc_produit}€</li>
                                                 <li>
-                                                    <strong>Total TTC :</strong>
-                                                    {(item.Prix_ttc_produit * item.qtt).toFixed(2)}€
+                                                    <strong>Total TTC :
+                                                    {(item.Prix_ttc_produit * item.qtt).toFixed(2)}€</strong>
                                                 </li>
                                             </ul>
                                         </div>

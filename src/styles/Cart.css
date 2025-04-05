@@ -5,27 +5,89 @@
 */
 
 .cart {
-    min-height: 80rem;
+    min-height: 115vh;
 }
 
-.cart h1 {
+.cart-title {
     font-family: var(--font-title);
-    font-size: var(--font-size-h2);
+    font-size: var(--font-size-baseline);
     color: var(--color-text-main);
     padding-top: 6rem;
-    padding-bottom: 6rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    padding-bottom: 0.5rem;
+    text-align: center;
 }
 
-.cart h1::after {
+.cart-title::after {
     content: "";
     display: block;
-    width: 40px;
+    width: 60px;
     height: 2px;
-    margin: 1rem 9rem 0;
     background-color: var(--color-dark-green);
+    margin: 1.5rem auto 0;
 }
+
+.cart-subtitle {
+    text-align: center;
+    color: var(--color-text-main);
+    margin-bottom: 6rem;
+}
+
+.cart-empty {
+    width: 100%;
+    /*
+    min-height: 60vh;
+    */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2rem;
+}
+
+.cart-empty-banner {
+    background-color: rgba(0, 0, 0, 0.05); /* gris léger opacifié */
+    padding: 10rem 20rem;
+    border-radius: 2rem;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-empty-banner h2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h2);
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+.cart-empty-banner p {
+    font-size: var(--font-size-body);
+    color: var(--color-text-main);
+    margin-bottom: 2rem;
+}
+
+.cart-empty-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.cart-empty-links a {
+    padding: 1rem 2rem;
+    background-color: var(--color-light-orange);
+    color: var(--color-dark-green);
+    text-decoration: none;
+    border: 1px solid var(--color-dark-green);
+    border-radius: 30px;
+    font-family: var(--font-title);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-empty-links a:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-light-orange);
+}
+
 
 .cart-full {
     display: flex;
