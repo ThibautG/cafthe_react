@@ -2,10 +2,12 @@ import React, {useContext, useState} from 'react';
 import {Link} from "react-router-dom";
 import "../styles/ProductCard.css"
 import {CartContext} from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
 import ProductDetails from "./ProductDetails";
 
 function ProductCard({produit}) {
     const { addToCart } = useContext(CartContext);
+    const { isAuthenticated } = useContext(AuthContext);
     const [showDetails, setShowDetails] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
@@ -33,8 +35,15 @@ function ProductCard({produit}) {
                         <p>{produit.Prix_ttc_produit} €</p>
                     </div>
                     <div className={"product-btn"}>
-                        <button onClick={() => addToCart(produit) }>Acheter</button>
-                        <p>
+                        {isAuthenticated ? (
+                            <button onClick={() => addToCart(produit)}>
+                                Acheter
+                            </button>
+                        ) : (
+                            <Link to="/login" className={"product-login-btn"}>
+                                Connexion
+                            </Link>
+                        )}                        <p>
                             <button
                                 className={"details-btn"}
                                 onClick={() => setShowDetails(true)}

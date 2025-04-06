@@ -33,6 +33,7 @@
     color: var(--color-text-secondary);
 }
 
+.product-card:hover .product-login-btn,
 .product-card:hover .product-btn button {
     border: 1px solid var(--color-text-secondary);
     background-color: transparent;
@@ -102,6 +103,7 @@
     align-items: center;
 }
 
+.product-login-btn,
 .product-btn button {
     font-family: var(--font-text);
     font-size: var(--font-size-body);
@@ -114,6 +116,7 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.product-card .product-login-btn:hover,
 .product-card .product-btn button:hover {
     background-color: var(--color-text-secondary) ;
     color: var(--color-dark-green) ;
@@ -128,3 +131,5 @@
     transform: scale(1.1);
     color: var(--color-text-secondary);
 }
+
+
