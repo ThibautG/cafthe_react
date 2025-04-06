@@ -48,14 +48,15 @@ function Login(props) {
             <h1>Connexion</h1>
             <p className={"login-subtitle"}>Accédez à votre espace client en toute simplicité.</p>
 
-            {errorMsg && (<p className={"login-error"}>{errorMsg}</p>)}
+            {errorMsg && (<p className={"global-msg-error login-msg-error"}>{errorMsg}</p>)}
 
-            <div className={"login-box"}>
+            <div className={"global-box"}>
                 <form onSubmit={handleSubmit}>
                     <ul className={"login-list"}>
                         <li>
-                            <label htmlFor={"email"}>E-mail : </label>
+                            <label htmlFor={"email"} className={"global-label"}>E-mail : </label>
                             <input type={"email"}
+                                   className={"global-input"}
                                    value={email}
                                    onChange={(e) => setEmail(e.target.value)}
                                    id={"email"}
@@ -63,8 +64,9 @@ function Login(props) {
                                    name={"mail"}/>
                         </li>
                         <li>
-                            <label htmlFor={"password"}>Mot de passe : </label>
+                            <label htmlFor={"password"} className={"global-label"}>Mot de passe : </label>
                             <input type={"password"}
+                                   className={"global-input"}
                                    value={mdp}
                                    onChange={(e) => setMdp(e.target.value)}
                                    id={"password"}
@@ -73,8 +75,8 @@ function Login(props) {
                         </li>
 
                         <li className={"login-actions"}>
-                            <button type={"submit"} className={"login-primary-btn"}>Connexion</button>
-                            <Link to={`/register`} className={"login-secondary-btn"}>Créer un compte</Link>
+                            <button type={"submit"} className={"global-btn-primary"}>Connexion</button>
+                            <p className={"login-link"}>Première visite ?<Link to={`/register`} className={"global-link login-footer-link"}>Créez un compte</Link></p>
                         </li>
                     </ul>
                 </form>

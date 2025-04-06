@@ -15,10 +15,10 @@
 
 .section-login h1 {
     font-family: var(--font-title);
-    font-size: var(--font-size-h2);
+    font-size: var(--font-size-baseline);
     color: var(--color-text-main);
     margin-bottom: 0.5rem;
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
     position: relative;
 }
 
@@ -37,16 +37,6 @@
     font-size: var(--font-size-body);
 }
 
-/* --- Box contenant le formulaire --- */
-.login-box {
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 6rem 20rem;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 2rem;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-}
-
 /* --- Liste du formulaire --- */
 .login-list {
     list-style: none;
@@ -57,40 +47,10 @@
     gap: 2rem;
 }
 
-/* --- Label + champ --- */
-.login-list label {
-    display: block;
-    margin-bottom: 0.5rem;
-    text-align: left;
-    font: var(--font-text);
-    color: var(--color-text-main);
-}
-
-.login-list input,
-.login-primary-btn {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.login-list input {
-    width: 100%;
-    padding-block: 1rem;
-    padding-left: 3.2rem;
-    border-radius: 3rem;
-    border: 1px solid var(--color-dark-green);
-    font-size: var(--font-size-body);
-    font: var(--font-text);
-}
-
-.login-list input:focus {
-    outline: 2px solid var(--color-dark-green);
-}
-
 /* --- Erreur --- */
-.login-error {
-    color: red;
-    font-weight: bold;
-    text-align: center;
+.section-login .login-msg-error {
+    width: 70%;
+    margin: 0 auto 2rem;
 }
 
 /* --- Boutons --- */
@@ -99,55 +59,19 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    /*
     align-items: stretch;
+    */
 }
 
-.login-primary-btn {
-    width: 100%;
-    padding: 1.2rem 3.2rem;
-    border: 1px solid var(--color-dark-green);
-    border-radius: 30px;
-    background-color: var(--color-dark-green);
-    color: var(--color-light-orange);
-    font-family: var(--font-title);
-    font-size: var(--font-size-body);
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* --- Links --- */
+.login-actions .login-link {
+    display: flex;
+    gap: 2rem;
 }
 
-.login-primary-btn:hover {
-    background-color: var(--color-light-orange);
-    color: var(--color-dark-green);
+.login-footer-link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 0.5px;
 }
-
-.login-secondary-btn {
-    align-self: flex-start;
-    font-family: var(--font-text);
-    font-size: var(--font-size-body);
-    color: var(--color-text-main);
-    text-decoration: none;
-    position: relative;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-/*.login-secondary-btn::after {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 0%;
-    background-color: var(--color-dark-green);
-    transition: width 0.3s ease;
-    margin-top: 0.2rem;
-}*/
-
-.login-secondary-btn:hover {
-    transform: scale(1.05);
-    color: var(--color-dark-green);
-}
-
-.login-secondary-btn:hover::after {
-    width: 100%;
-}
-
-

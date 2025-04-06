@@ -1,26 +1,21 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import '../styles/Registration.css';
 
 function Registration(props) {
     const navigate = useNavigate();// la navigation
 
-    /*
-* Test
-* Etienne
-* etienn.test@email.com
-* 0678910112
-* 56 Rue Des Tests, Paris, 75015
-* monMotDePasse
-* */
     const [nom, setNom] = useState("");
     const [prenom, setPrenom] = useState("");
     const [email, setEmail] = useState("");
     const [tel, setTel] = useState("");
     const [adresse, setAdresse] = useState("");
     const [mdp, setMdp] = useState("");
+    const [mdpConfirm, setMdpConfirm] = useState("");
 
     const [errorMsg, setErrorMsg] = useState("");
+    const [successMsg, setSuccessMsg] = useState("");
 
     // Récupérer la date du jour de l'inscription
     const today = new Date();
@@ -31,6 +26,13 @@ function Registration(props) {
     const handleSubmit = async (e) => { // fonction asynchrone car on va aller chercher les données dans l'API
         e.preventDefault();
         setErrorMsg("");
+        setSuccessMsg("");
+
+        if (mdp !== mdpConfirm) {
+            setErrorMsg("Les mots de passe ne correspondent pas.");
+            return;
+        }
+
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/register`,
                 {
@@ -44,25 +46,51 @@ function Registration(props) {
                 },
             );
             // redirection du client vers page login
-            alert("Inscription réussie. Veuillez vous connecter.")
-            navigate("/login");
+            setSuccessMsg("Bienvenue chez CafThé ! Votre compte a bien été créé.")
+            setNom("");
+            setPrenom("");
+            setEmail("");
+            setTel("");
+            setAdresse("");
+            setMdp("");
+            setMdpConfirm("");
         } catch (error) {
             console.error("Erreur lors de l'inscription : ", error);
-            if (error.response.data.message) {
+            if (error.response && error.response.data && error.response.data.message) {
                 setErrorMsg(error.response.data.message);
             } else {
-                setErrorMsg("Erreur");
+                setErrorMsg("Une erreur est survenue. Veuillez réessayer.");
             }
         }
     };
 
     return (
-        <section className={"section-register"}>
-            <form onSubmit={handleSubmit}>
+        <section className={"global-section section-register"}>
+            <h1 className={"global-section-title"}>Créer un compte</h1>
+            <p className={"global-section-subtitle"}>
+                Rejoignez la communauté CafThé et savourez une expérience sur-mesure.
+            </p>
+
+            {successMsg && (
+                <div className={"register-message"}>
+                    <p className={"global-msg-success register-success"}>
+                        {successMsg} <Link to="/login" className="global-link register-login-link">Connectez-vous !</Link>
+                    </p>
+                </div>
+            )}
+
+            {errorMsg && (
+                <div  className={"register-message"}>
+                    <p className={"global-msg-error register-error"}>{errorMsg}</p>
+                </div>
+            )}
+
+            <form onSubmit={handleSubmit} className={"global-box"}>
                 <ul className={"register-list"}>
                     <li>
-                        <label htmlFor={"nom"}>Nom : </label>
+                        <label htmlFor={"nom"} className={"global-label"}>Nom<span className={"required"}>*</span> : </label>
                         <input type={"text"}
+                               className={"global-input"}
                                value={nom}
                                onChange={(e) => setNom(e.target.value)}
                                id={"nom"}
@@ -70,8 +98,9 @@ function Registration(props) {
                                name={"nom"}/>
                     </li>
                     <li>
-                        <label htmlFor={"prenom"}>Prénom : </label>
+                        <label htmlFor={"prenom"} className={"global-label"}>Prénom<span className="required">*</span> : </label>
                         <input type={"text"}
+                               className={"global-input"}
                                value={prenom}
                                onChange={(e) => setPrenom(e.target.value)}
                                id={"prenom"}
@@ -79,8 +108,9 @@ function Registration(props) {
                                name={"prenom"}/>
                     </li>
                     <li>
-                        <label htmlFor={"email"}>E-mail : </label>
+                        <label htmlFor={"email"} className={"global-label"}>E-mail<span className="required">*</span> : </label>
                         <input type={"email"}
+                               className={"global-input"}
                                value={email}
                                onChange={(e) => setEmail(e.target.value)}
                                id={"email"}
@@ -88,8 +118,9 @@ function Registration(props) {
                                name={"mail"}/>
                     </li>
                     <li>
-                        <label htmlFor={"tel"}>Téléphone : </label>
+                        <label htmlFor={"tel"} className={"global-label"}>Téléphone<span className="required">*</span> : </label>
                         <input type={"tel"}
+                               className={"global-input"}
                                value={tel}
                                onChange={(e) => setTel(e.target.value)}
                                id={"tel"}
@@ -97,8 +128,9 @@ function Registration(props) {
                                name={"tel"}/>
                     </li>
                     <li>
-                        <label htmlFor={"adresse"}>Adresse : </label>
+                        <label htmlFor={"adresse"} className={"global-label"}>Adresse<span className="required">*</span> : </label>
                         <input type={"text"}
+                               className={"global-input"}
                                value={adresse}
                                onChange={(e) => setAdresse(e.target.value)}
                                id={"adresse"}
@@ -106,20 +138,40 @@ function Registration(props) {
                                name={"adresse"}/>
                     </li>
                     <li>
-                        <label htmlFor={"password"}>Mot de passe : </label>
+                        <label htmlFor={"password"} className={"global-label"}>Mot de passe<span className="required">*</span> : </label>
                         <input type={"password"}
+                               className={"global-input"}
                                value={mdp}
                                onChange={(e) => setMdp(e.target.value)}
                                id={"password"}
                                required
                                name={"password"}/>
                     </li>
-                    {errorMsg && (
-                        <div>{errorMsg}</div>
-                    )}
-                    <li className={"register-button"}>
-                        <button type={"submit"}>Valider l'inscription</button>
+                    <li>
+                        <label htmlFor={"passwordConfirm"} className={"global-label"}>Confirmez votre mot de passe<span
+                            className="required">*</span> : </label>
+                        <input type={"password"}
+                               className={"global-input"}
+                               value={mdpConfirm}
+                               onChange={(e) => setMdpConfirm(e.target.value)}
+                               id={"passwordConfirm"}
+                               required
+                               name={"passwordConfirm"}/>
                     </li>
+                    <li className="register-legend">
+                        <p className="register-required-legend">
+                            <span className="required">*</span> Champs obligatoires
+                        </p>
+                    </li>
+
+                    <div className={"register-button"}>
+                        <button type={"submit"} className={"global-btn-primary"}>Créer mon compte</button>
+                        <p className={"register-link"}>
+                            Vous avez déjà un compte ? <Link to={"/login"} className={"global-link footer-login-link"}>Connectez-vous
+                            ici !</Link>
+                        </p>
+                    </div>
+
                 </ul>
             </form>
         </section>

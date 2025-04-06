@@ -141,9 +141,27 @@ em {
     outline-offset: 4px;
 }*/
 
+/* ----- GLOBAL BOX ----- */
+.global-box {
+    /*background-color: rgba(0, 0, 0, 0.05);*/ /*Noir*/
+    background-color: rgba(217, 217, 217, 0.3); /*Gris foncé*/
+    /*background-color: rgba(246, 246, 246, 0.6);*/ /*Gris clair*/
+    /*background-color: rgba(255, 255, 255, 0.5);*/ /*Blanc*/
+    padding: 6rem 20%;
+    /*
+    max-width: 600px;
+    */
+    margin: 0 auto;
+    border-radius: 2rem;
+    /*
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    */
+}
+
 
 /* ----- GLOBAL LINKS ----- */
 .global-link {
+    display: inline-block;
     align-self: flex-start;
     font-family: var(--font-text);
     font-size: var(--font-size-body);
@@ -200,17 +218,18 @@ em {
     /*margin: 0 auto;*/
     padding-top: 4rem;
     padding-inline: 10%;
-    text-align: center;
+    /*text-align: center;*/
     font-family: var(--font-text);
     min-height: 110vh;
 }
 
 .global-section-title {
     font-family: var(--font-title);
-    font-size: var(--font-size-h2);
+    font-size: var(--font-size-baseline);
+    text-align: center;
     color: var(--color-text-main);
     margin-bottom: 0.5rem;
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
     position: relative;
 }
 
@@ -225,6 +244,38 @@ em {
 
 .global-section-subtitle {
     margin-bottom: 6rem;
+    text-align: center;
     color: var(--color-text-main);
     font-size: var(--font-size-body);
+}
+
+
+
+/* ----- GLOBAL MESSAGES ----- */
+.global-msg-success {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding: 1.2rem 2rem;
+    border-left: 5px solid var(--color-dark-green);
+    background-color: rgba(0, 128, 0, 0.05);
+    color: var(--color-text-main);
+    font: var(--font-text);
+    font-size: var(--font-size-body);
+    border-radius: 1rem;
+    /*font-weight: bold;*/
+}
+
+.global-msg-error {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding: 1.2rem 2rem;
+    border-left: 5px solid var(--color-dark-orange);
+    background-color: rgba(233, 184, 133, 0.3);
+    color: var(--color-text-main);
+    font: var(--font-text);
+    font-size: var(--font-size-body);
+    font-weight: bold;
+    border-radius: 1rem;
 }
