@@ -9,7 +9,8 @@ function Footer(props) {
                 <h2>Rejoignez la communauté CafThé</h2>
                 <p>Recevez nos nouveautés, recettes, conseils et bons plans autour du thé et du café.</p>
                 <form className={"newsletter-form"}>
-                    <input type={"email"} placeholder={"Votre adresse e-mail"} required/>
+                    <label htmlFor={"newsletter-email"} className={"sr-only"}>Votre adresse e-mail</label>
+                    <input id={"newsletter-email"} type={"email"} placeholder={"Votre adresse e-mail"} required/>
                     <button type={"submit"}>S'inscrire</button>
                 </form>
             </div>

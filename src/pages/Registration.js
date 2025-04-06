@@ -57,68 +57,68 @@ function Registration(props) {
     };
 
     return (
-        <section>
+        <section className={"section-register"}>
             <form onSubmit={handleSubmit}>
-                <ul className={"login-list"}>
+                <ul className={"register-list"}>
                     <li>
-                        <label htmlFor="nom">Nom : </label>
-                        <input type="text"
+                        <label htmlFor={"nom"}>Nom : </label>
+                        <input type={"text"}
                                value={nom}
                                onChange={(e) => setNom(e.target.value)}
-                               id="nom"
+                               id={"nom"}
                                required
-                               name="nom"/>
+                               name={"nom"}/>
                     </li>
                     <li>
-                        <label htmlFor="prenom">Prénom : </label>
-                        <input type="text"
+                        <label htmlFor={"prenom"}>Prénom : </label>
+                        <input type={"text"}
                                value={prenom}
                                onChange={(e) => setPrenom(e.target.value)}
-                               id="prenom"
+                               id={"prenom"}
                                required
-                               name="prenom"/>
+                               name={"prenom"}/>
                     </li>
                     <li>
-                        <label htmlFor="email">E-mail : </label>
-                        <input type="email"
+                        <label htmlFor={"email"}>E-mail : </label>
+                        <input type={"email"}
                                value={email}
                                onChange={(e) => setEmail(e.target.value)}
-                               id="email"
+                               id={"email"}
                                required
-                               name="mail"/>
+                               name={"mail"}/>
                     </li>
                     <li>
-                        <label htmlFor="tel">Téléphone : </label>
-                        <input type="tel"
+                        <label htmlFor={"tel"}>Téléphone : </label>
+                        <input type={"tel"}
                                value={tel}
                                onChange={(e) => setTel(e.target.value)}
-                               id="tel"
+                               id={"tel"}
                                required
-                               name="tel"/>
+                               name={"tel"}/>
                     </li>
                     <li>
-                        <label htmlFor="adresse">Adresse : </label>
-                        <input type="text"
+                        <label htmlFor={"adresse"}>Adresse : </label>
+                        <input type={"text"}
                                value={adresse}
                                onChange={(e) => setAdresse(e.target.value)}
-                               id="adresse"
+                               id={"adresse"}
                                required
-                               name="adresse"/>
+                               name={"adresse"}/>
                     </li>
                     <li>
-                        <label htmlFor="password">Mot de passe : </label>
-                        <input type="password"
+                        <label htmlFor={"password"}>Mot de passe : </label>
+                        <input type={"password"}
                                value={mdp}
                                onChange={(e) => setMdp(e.target.value)}
-                               id="password"
+                               id={"password"}
                                required
-                               name="password"/>
+                               name={"password"}/>
                     </li>
                     {errorMsg && (
-                        <div>{errorMsg}</div> // structure d'affichage conditionnel
+                        <div>{errorMsg}</div>
                     )}
-                    <li className="button">
-                        <button type="submit">Valider l'inscription</button>
+                    <li className={"register-button"}>
+                        <button type={"submit"}>Valider l'inscription</button>
                     </li>
                 </ul>
             </form>

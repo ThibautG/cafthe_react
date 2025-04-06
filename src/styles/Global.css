@@ -75,3 +75,104 @@ strong {
 em {
     font-style: italic;
 }
+
+/* ----- SR ONLY ----- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* ----- GLOBAL BUTTONS -----*/
+
+.global-btn-primary {
+    padding: 1.2rem 3.2rem;
+    border: 1px solid var(--color-dark-green);
+    border-radius: 30px;
+    background-color: var(--color-dark-green);
+    color: var(--color-light-orange);
+    font-family: var(--font-text);
+    font-size: var(--font-size-body);
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.global-btn-primary:hover {
+    background-color: var(--color-light-orange);
+    color: var(--color-dark-green);
+}
+
+.global-btn-secondary {
+    padding: 1.2rem 3.2rem;
+    border: 1px solid var(--color-dark-green);
+    border-radius: 30px;
+    background-color: var(--color-dark-orange);
+    color: var(--color-text-main);
+    font-family: var(--font-text);
+    font-size: var(--font-size-body);
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.global-btn-secondary:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-light-orange);
+}
+
+.global-btn-primary,
+.global-btn-secondary {
+    display: inline-block;
+}
+
+/*.global-btn-primary:focus,
+.global-btn-secondary:focus {
+    outline: 2px solid var(--color-dark-green);
+    outline-offset: 4px;
+}*/
+
+
+
+/* ----- GLOBAL INPUTS ----- */
+.global-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font: var(--font-text);
+    color: var(--color-text-main);
+}
+
+.global-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-block: 1rem;
+    padding-left: 3.2rem;
+    border-radius: 3rem;
+    border: 1px solid var(--color-dark-green);
+    font-size: var(--font-size-body);
+    font: var(--font-text);
+    color: var(--color-text-main);
+    transition: border 0.3s ease, outline 0.3s ease;
+}
+
+.global-input:focus {
+    outline: 2px solid var(--color-dark-green);
+    outline-offset: 2px;
+}
+
+.global-input::placeholder {
+    color: var(--color-text-main);
+    font: var(--font-text);
+    font-size: var(--font-size-body);
+    opacity: 0.6;
+}
