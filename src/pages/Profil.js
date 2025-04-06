@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
+import '../styles/Profil.css';
 
 
 function Profil(props) {
@@ -158,6 +159,8 @@ function Profil(props) {
             <Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>
                 Voir les commandes
             </Link>
+
+
         </section>
     );
 }
