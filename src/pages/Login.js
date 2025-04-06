@@ -54,22 +54,22 @@ function Login(props) {
                 <form onSubmit={handleSubmit}>
                     <ul className={"login-list"}>
                         <li>
-                            <label htmlFor={"email"} className={"global-label"}>E-mail : </label>
+                            <label htmlFor={"login-email"} className={"global-label"}>E-mail : </label>
                             <input type={"email"}
                                    className={"global-input"}
                                    value={email}
                                    onChange={(e) => setEmail(e.target.value)}
-                                   id={"email"}
+                                   id={"login-email"}
                                    required
                                    name={"mail"}/>
                         </li>
                         <li>
-                            <label htmlFor={"password"} className={"global-label"}>Mot de passe : </label>
+                            <label htmlFor={"login-password"} className={"global-label"}>Mot de passe : </label>
                             <input type={"password"}
                                    className={"global-input"}
                                    value={mdp}
                                    onChange={(e) => setMdp(e.target.value)}
-                                   id={"password"}
+                                   id={"login-password"}
                                    required
                                    name={"password"}/>
                         </li>
