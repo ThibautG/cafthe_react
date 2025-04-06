@@ -66,6 +66,12 @@
     color: var(--color-text-main);
 }
 
+.login-list input,
+.login-primary-btn {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .login-list input {
     width: 100%;
     padding: 1rem;
