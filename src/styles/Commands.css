@@ -5,7 +5,7 @@
 */
 
 .section-command {
-    padding-block: 6rem;
+    padding-top: 6rem;
 }
 
 .section-command-title {
@@ -36,12 +36,10 @@
     align-items: flex-start;
     gap: 2rem;
 
-    border: 1px solid var(--color-border-light);
-    border-radius: 12px;
+    border-radius: 1rem;
     padding: 1.5rem;
     background-color: var(--color-background-box);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.2s ease;
 }
 
 
@@ -65,7 +63,7 @@
 }
 
 .command-card-link {
-     text-decoration: underline;
+    text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 0.5px;
 }

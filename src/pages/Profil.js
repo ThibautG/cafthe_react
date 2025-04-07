@@ -2,7 +2,8 @@ import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 import '../styles/Profil.css';
-import Commands from "./Commands";
+import Commands from "../components/Commands";
+import CommandDetail from "../components/CommandDetail";
 
 
 function Profil(props) {
@@ -35,6 +36,9 @@ function Profil(props) {
 
     // un state pour afficher ou non l'input de modification du mdp
     const [showPassword, setShowPassword] = useState(false);
+
+    // us state pour stocker l'ID de commande sélectionnée
+    const [selectedCommandId, setSelectedCommandId] = useState(null);
 
     // fonction à appeler sur onChange du champ input pour stocker valeur
     const handleInputChangeMail = (e) => {
@@ -248,15 +252,13 @@ function Profil(props) {
                 </div>
             </div>
 
-            {/*<Link to={`/`} className={"details-btn"}>
+            <Commands id={user.id} onSelectCommand={setSelectedCommandId}/>
+
+            {selectedCommandId && <CommandDetail id={selectedCommandId} />}
+
+            <Link to={`/`} className={"global-btn-secondary"}>
                 Retour à l'accueil
-            </Link>*/}
-
-            {/* <Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>
-                Voir les commandes
-            </Link>*/}
-
-            <Commands id={user.id}/>
+            </Link>
 
         </section>
     );

@@ -294,3 +294,9 @@ em {
     border-radius: 1rem;
     text-align: center;
 }
+
+/* ----- GLOBAL BUTTONS ----- */
+.global-no-button {
+    background: none;
+    border: none;
+}

@@ -3,3 +3,49 @@
     Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
     Other (background, color, font-family, font-size, text-align...)
 */
+.command-detail {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background-color: var(--color-background-box);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.command-detail-title {
+    font-family: var(--font-title);
+    font-size: var(--font-size-nav-h2);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.command-detail-list {
+    padding-top: 2rem;
+    /*
+    padding-bottom: 1rem;
+    */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.command-detail-info {
+    padding-left: 6rem;
+    display: flex;
+    gap: 6rem;
+    padding-bottom: 3rem;
+}
+
+.command-detail-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.command-detail-card-info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 40rem;
+    gap: 3rem;
+}

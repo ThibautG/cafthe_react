@@ -11,7 +11,7 @@ import Accessories from "./pages/Accessories";
 import {AuthProvider} from "./context/AuthContext";
 import Login from "./pages/Login";
 import Profil from "./pages/Profil";
-import Commands from "./pages/Commands";
+import Commands from "./components/Commands";
 import CommandDetail from "./components/CommandDetail";
 import Registration from "./pages/Registration";
 import Cart from "./pages/Cart";

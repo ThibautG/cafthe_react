@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 import "../styles/Commands.css"
 
-function Commands({id}) {
+function Commands({id, onSelectCommand}) {
 /*
     const user = JSON.parse(localStorage.getItem('user')); // on récupère les infos user dans localStorage
 */
@@ -60,10 +60,12 @@ function Commands({id}) {
                             <div className={"command-card-id"}>
                                 <p><strong>Commande #{command.Identifiant_commande}</strong></p>
                                 <p>
-                                    <Link to={`/commandes/${command.Identifiant_commande}`}
-                                          className={"global-link command-card-link"}>
+                                    <button
+                                        className={"global-link command-card-link global-no-button"}
+                                        onClick={() => onSelectCommand(command.Identifiant_commande)}
+                                    >
                                         Voir détails
-                                    </Link>
+                                    </button>
                                 </p>
                             </div>
                             <div className={"command-card-date"}>
@@ -80,9 +82,7 @@ function Commands({id}) {
                     )}
                 </div>
 
-                <Link to={`/`} className={"global-btn-secondary"}>
-                    Retour à l'accueil
-                </Link>
+
         </div>
 
     );

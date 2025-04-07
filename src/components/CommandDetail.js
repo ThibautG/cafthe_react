@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import "../styles/CommandDetail.css"
-import {Link, useParams} from "react-router-dom";
+import "../styles/CommandDetail.css";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 
-function CommandDetail(props) {
-    const {id} = useParams();
+
+function CommandDetail({id}) {
 
     const [detail, setDetail] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -56,25 +55,37 @@ function CommandDetail(props) {
 
 
     return (
-        <div>
-            <h3>Détail de la commande numéro {id}</h3>
-            <div className={"command-list"}>
+        <div className={"command-detail"}>
+            <h2 className={"command-detail-title"}>Détails de la commande # {id}</h2>
+            <div className={"command-detail-list"}>
+                <div className={"command-detail-info"}>
+                    <div className={"command-info-date"}>
+                        <p><strong>Date :</strong> {(detail[0].Date_commande).split('T')[0]}</p>
+                        {/*on utilise premier objet présent dans detail[] car la date et le total sont les mêmes partout*/}
+                        <p><strong>Total :</strong> {detail[0].Montant_ttc_commande}€</p>
+                    </div>
+                    <div className={"command-info-id"}>
+                        <p><strong>Statut :</strong> {detail[0].Statut_commande}</p>
+                        <p><strong>Type :</strong> {detail[0].Type_commande}</p>
+                    </div>
+                </div>
+
                 {detail.map((item) => (
-                    <div className={"command"}>
-                        <p>Designation : {item.Designation_produit}</p>
-                        <p>Quantité : {item.Quantite_produit_ligne_commande}</p>
-                        <p>Conditionnement : {item.Type_conditionnement}</p>
-                        <p>Prix unitaire TTC : {item.Prix_unitaire_ttc_produit_ligne_commande}€</p>
-                        <p>Prix total TTC : {item.Prix_unitaire_ttc_produit_ligne_commande * item.Quantite_produit_ligne_commande}€</p>
+                    <div className={"command-detail-card"}>
+                        <p><strong>{item.Designation_produit}</strong></p>
+                        <div className={"command-detail-card-info"}>
+                            <div className={"command-detail-card-id"}>
+                                <p>Qté : {item.Quantite_produit_ligne_commande}</p>
+                                <p><em>{item.Type_conditionnement}</em></p>
+                            </div>
+                            <div className={"command-detail-card-price"}>
+                                <p>Prix unitaire : {item.Prix_unitaire_ttc_produit_ligne_commande}€</p>
+                                <p>Prix total
+                                    : <strong>{item.Prix_unitaire_ttc_produit_ligne_commande * item.Quantite_produit_ligne_commande} €</strong></p>
+                            </div>
+                        </div>
                     </div>)
                 )}
-                <div className={"command"}>
-                    <p>Date commande : {(detail[0].Date_commande).split('T')[0]}</p>
-                    {/*on utilise premier objet présent dans detail[] car la date et le total sont les mêmes partout*/}
-                    <p>Montant total commande TTC : {detail[0].Montant_ttc_commande}€</p>
-                    <p>Statut de la commande : {detail[0].Statut_commande}</p>
-                    <p>Type de commande : {detail[0].Type_commande}</p>
-                </div>
 
                 {/*<Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>
                     retour aux commandes
