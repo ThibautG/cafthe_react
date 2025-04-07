@@ -24,6 +24,7 @@
     --color-light-brown : #ECD0B3;
     --color-dark-orange : #E9B885;
     --color-light-orange : #F4E7DB;
+    --color-background-box : rgba(217, 217, 217, 0.3);
 }
 
 /* ---IDIOMATIC CSS--- */
@@ -154,7 +155,7 @@ em {
 /* ----- GLOBAL BOX ----- */
 .global-box {
     /*background-color: rgba(0, 0, 0, 0.05);*/ /*Noir*/
-    background-color: rgba(217, 217, 217, 0.3); /*Gris foncé*/
+    background-color: var(--color-background-box); /*Gris foncé*/
     /*background-color: rgba(246, 246, 246, 0.6);*/ /*Gris clair*/
     /*background-color: rgba(255, 255, 255, 0.5);*/ /*Blanc*/
     padding: 6rem 20%;

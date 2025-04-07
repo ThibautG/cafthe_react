@@ -3,3 +3,69 @@
     Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
     Other (background, color, font-family, font-size, text-align...)
 */
+
+.section-command {
+    padding-block: 6rem;
+}
+
+.section-command-title {
+    font-family: var(--font-title);
+    font-size: var(--font-size-nav-h2);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.section-command-subtitle {
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+    line-height: 1.5;
+    font-size: var(--font-size-body);
+    color: var(--color-text-main);
+}
+
+.command-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.command-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background-color: var(--color-background-box);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease;
+}
+
+
+.command-card-id,
+.command-card-date,
+.command-card-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.command-card-id {
+    min-width: 120px;
+}
+
+.command-card p {
+    margin: 0;
+    font-size: var(--font-size-body);
+    color: var(--color-text-main);
+}
+
+.command-card-link {
+     text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 0.5px;
+}

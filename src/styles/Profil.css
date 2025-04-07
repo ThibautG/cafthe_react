@@ -25,8 +25,8 @@
     gap: 2rem;
 }
 
-/* Améliorations typographiques */
 .profil-infos h2 {
+    font-family: var(--font-title);
     font-size: var(--font-size-nav-h2);
     margin-bottom: 1rem;
     font-weight: bold;
@@ -39,7 +39,6 @@
     color: var(--color-text-main);
 }
 
-/* Optionnel : espacement des formulaires */
 .profil-change form {
     display: flex;
     flex-direction: column;
