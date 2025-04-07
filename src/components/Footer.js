@@ -2,13 +2,18 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import '../styles/Footer.css';
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    // on pourra envoyer les mails d'inscription newsletter
+};
+
 function Footer(props) {
     return (
         <footer>
             <div className={"footer-newsletter"}>
                 <h2>Rejoignez la communauté CafThé</h2>
                 <p>Recevez nos nouveautés, recettes, conseils et bons plans autour du thé et du café.</p>
-                <form className={"newsletter-form"}>
+                <form onSubmit={handleSubmit} className={"newsletter-form"}>
                     <label htmlFor={"newsletter-email"} className={"sr-only"}>Votre adresse e-mail</label>
                     <input id={"newsletter-email"} type={"email"} placeholder={"Votre adresse e-mail"} required/>
                     <button className={"global-btn-primary"} type={"submit"}>S'inscrire</button>

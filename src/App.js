@@ -17,6 +17,7 @@ import Registration from "./pages/Registration";
 import Cart from "./pages/Cart";
 import {CartProvider} from "./context/CartContext";
 import SearchPage from "./pages/SearchPage";
+import ConfirmOrder from "./pages/ConfirmOrder";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
                             <Route path={"/commandes/:id"} element={<CommandDetail />} />
                             <Route path={"/register"} element={<Registration />} />
                             <Route path={"/panier"} element={<Cart />} />
+                            <Route path={"/commande/valider"} element={<ConfirmOrder />} />
                         </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
                         {/* Gestion des routes non trouvées */}
                         {/*<Route path="*" element={<NotFound />} />*/}

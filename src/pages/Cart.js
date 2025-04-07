@@ -96,7 +96,7 @@ function Cart(props) {
                             <p>Besoin de modifier quelque chose ? C’est encore possible.</p>
                             <p>Total : {totalPriceTTC} €</p>
                             <div className={"cart-summary-actions"}>
-                                <button>Valider la commande</button>
+                                <Link to="/commande/valider" className="global-btn-primary">Valider la commande</Link>
                             </div>
                         </aside>
                     </div>
