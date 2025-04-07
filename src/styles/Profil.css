@@ -12,6 +12,10 @@
     flex-wrap: wrap;
 }
 
+.wrap-profil {
+    padding-bottom: 6rem;
+}
+
 .profil-infos {
     flex: 1;
     min-width: 280px;

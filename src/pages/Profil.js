@@ -147,7 +147,7 @@ function Profil(props) {
 
 
     return (
-        <section className={"global-section"}>
+        <section className={"global-section wrap-profil"}>
             <h1 className={"global-section-title"}>Mon profil</h1>
             <p className={"global-section-subtitle"}>
                 Retrouvez et modifiez vos informations personnelles, votre mot de passe et l’historique de vos commandes.
