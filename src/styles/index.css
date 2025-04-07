@@ -311,12 +311,12 @@ code {
 /* --------PICTOS---------- */
 @font-face {
   font-family: 'picto';
-  src: url('/public/assets/fonts/picto.eot?13763863');
-  src: url('/public/assets/fonts/picto.eot?13763863#iefix') format('embedded-opentype'),
-  url('/public/assets/fonts/picto.woff2?13763863') format('woff2'),
-  url('/public/assets/fonts/picto.woff?13763863') format('woff'),
-  url('/public/assets/fonts/picto.ttf?13763863') format('truetype'),
-  url('/public/assets/fonts/picto.svg?13763863#picto') format('svg');
+  src: url('/public/assets/fonts/picto.eot?69686681');
+  src: url('/public/assets/fonts/picto.eot?69686681#iefix') format('embedded-opentype'),
+  url('/public/assets/fonts/picto.woff2?69686681') format('woff2'),
+  url('/public/assets/fonts/picto.woff?69686681') format('woff'),
+  url('/public/assets/fonts/picto.ttf?69686681') format('truetype'),
+  url('/public/assets/fonts/picto.svg?69686681#picto') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -326,7 +326,7 @@ code {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'picto';
-    src: url('../font/picto.svg?13763863#picto') format('svg');
+    src: url('../font/picto.svg?69686681#picto') format('svg');
   }
 }
 */
@@ -367,6 +367,8 @@ code {
 
 .icon-basket:before { content: '\e800'; } /* '' */
 .icon-user:before { content: '\e801'; } /* '' */
+.icon-search:before { content: '\e802'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-instagram:before { content: '\f16d'; } /* '' */
 .icon-pinterest:before { content: '\f312'; } /* '' */
+

@@ -20,6 +20,7 @@ function Navbar(props) {
                 <li className={"navbar-links"}><Link to={`/produits/cafes`}>Cafés</Link></li>
                 <li className={"navbar-links"}><Link to={`/produits/thes`}>Thés</Link></li>
                 <li className={"navbar-links"}><Link to={`/produits/accessoires`}>Accessoires</Link></li>
+                <li className={"navbar-search-icon nav-icons"}></li>
 
                 <li className={"navbar-button"}>
                     {isAuthenticated ? (
