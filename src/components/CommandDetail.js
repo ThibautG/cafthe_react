@@ -62,7 +62,7 @@ function CommandDetail({id}) {
                     <div className={"command-info-date"}>
                         <p><strong>Date :</strong> {(detail[0].Date_commande).split('T')[0]}</p>
                         {/*on utilise premier objet présent dans detail[] car la date et le total sont les mêmes partout*/}
-                        <p><strong>Total :</strong> {detail[0].Montant_ttc_commande}€</p>
+                        <p><strong>Total :</strong> <span className={"command-total"}>{detail[0].Montant_ttc_commande} €</span></p>
                     </div>
                     <div className={"command-info-id"}>
                         <p><strong>Statut :</strong> {detail[0].Statut_commande}</p>
@@ -71,20 +71,26 @@ function CommandDetail({id}) {
                 </div>
 
                 {detail.map((item) => (
-                    <div className={"command-detail-card"}>
-                        <p><strong>{item.Designation_produit}</strong></p>
-                        <div className={"command-detail-card-info"}>
-                            <div className={"command-detail-card-id"}>
+                        <div className={"command-detail-card"} key={item.Identifiant_produit}>
+                            <div className={"command-detail-card-left"}>
+                                <img src={item.url_img_produit} alt={item.Designation_produit}
+                                     className={"command-product-img"}/>
+                            </div>
+
+                            <div className={"command-detail-card-center"}>
+                                <p><strong>{item.Designation_produit}</strong></p>
                                 <p>Qté : {item.Quantite_produit_ligne_commande}</p>
                                 <p><em>{item.Type_conditionnement}</em></p>
                             </div>
+
                             <div className={"command-detail-card-price"}>
                                 <p>Prix unitaire : {item.Prix_unitaire_ttc_produit_ligne_commande}€</p>
                                 <p>Prix total
-                                    : <strong>{item.Prix_unitaire_ttc_produit_ligne_commande * item.Quantite_produit_ligne_commande} €</strong></p>
+                                    : <strong>{(item.Prix_unitaire_ttc_produit_ligne_commande * item.Quantite_produit_ligne_commande).toFixed(2)} €</strong>
+                                </p>
                             </div>
                         </div>
-                    </div>)
+                    )
                 )}
 
                 {/*<Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>

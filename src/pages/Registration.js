@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import '../styles/Registration.css';
@@ -22,14 +22,45 @@ function Registration(props) {
     const todayString = today.toISOString();
     const currentDate = todayString.split('T')[0];
 
+    //fonction pour vérifier les données entrées dans le form
+    const validateForm = () => {
+        const emailVerification = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVerification.test(email)) {
+            setErrorMsg("Veuillez entrer une adresse email valide.");
+            return false;
+        }
+
+        if (mdp !== mdpConfirm) {
+            setErrorMsg("Les mots de passe saisis ne sont pas identiques.");
+            return false;
+        }
+
+        if (mdp.length < 6) {
+            setErrorMsg("Le mot de passe doit contenir au moins 6 caractères.");
+            return false;
+        }
+
+        const phoneVerification = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/;
+        if (!phoneVerification.test(tel)) {
+            setErrorMsg("Veuillez entrer un numéro de téléphone valide.");
+            return false;
+        }
+
+        return true;
+    };
+
+
 
     const handleSubmit = async (e) => { // fonction asynchrone car on va aller chercher les données dans l'API
         e.preventDefault();
         setErrorMsg("");
         setSuccessMsg("");
 
-        if (mdp !== mdpConfirm) {
-            setErrorMsg("Les mots de passe saisis ne sont pas identiques.");
+        //si le formulaire n'est pas valide, on s'arrête ici
+        if (!validateForm()) {
+            // on scroll la vue utilisateur sur le message d'erreur
+            const errorBlock = document.querySelector(".register-message");
+            if (errorBlock) errorBlock.scrollIntoView({ behavior: "smooth" });
             return;
         }
 
@@ -47,6 +78,8 @@ function Registration(props) {
             );
             // redirection du client vers page login
             setSuccessMsg("Bienvenue chez CafThé ! Votre compte a bien été créé.")
+
+            // on reset tous nos states
             setNom("");
             setPrenom("");
             setEmail("");
@@ -63,6 +96,22 @@ function Registration(props) {
             }
         }
     };
+
+    // on scroll la vue vers le message de succès
+    useEffect(() => {
+        if (successMsg) {
+            const successBlock = document.querySelector(".register-success");
+            if (successBlock) successBlock.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [successMsg]);
+
+    // on scroll la vue vers le message d'erreur
+    useEffect(() => {
+        if (errorMsg) {
+            const errorBlock = document.querySelector(".register-error");
+            if (errorBlock) errorBlock.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [errorMsg]);
 
     return (
         <section className={"global-section section-register"}>

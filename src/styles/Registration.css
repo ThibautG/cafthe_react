@@ -8,12 +8,16 @@
     padding-bottom: 6rem;
 }
 
-.register-error,
+/*.register-error,
 .register-success {
     padding-left: 30rem;
-}
+}*/
+
 
 .register-login-link {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
     padding-top: 1rem;
     text-decoration: underline;
     text-underline-offset: 4px;
