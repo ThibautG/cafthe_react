@@ -51,7 +51,7 @@ footer {
     outline: 2px solid var(--color-dark-green);
 }
 
-.newsletter-form button {
+/*.newsletter-form button {
     padding: 1.2rem 3.2rem;
     background-color: var(--color-light-green);
     color: var(--color-text-main);
@@ -66,7 +66,7 @@ footer {
 .newsletter-form button:hover {
     background-color: var(--color-text-main);
     color: var(--color-light-orange);
-}
+}*/
 
 
 
@@ -107,6 +107,7 @@ footer {
     gap: 3rem;
 }
 
+/*
 .contact-btn {
     padding: 1.2rem 3.2rem;
     background-color: var(--color-dark-orange);
@@ -120,6 +121,7 @@ footer {
     background-color: var(--color-text-main);
     color: var(--color-light-orange);
 }
+*/
 
 .icon {
     /*border: 1px solid black;

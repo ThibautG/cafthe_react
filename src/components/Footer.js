@@ -11,7 +11,7 @@ function Footer(props) {
                 <form className={"newsletter-form"}>
                     <label htmlFor={"newsletter-email"} className={"sr-only"}>Votre adresse e-mail</label>
                     <input id={"newsletter-email"} type={"email"} placeholder={"Votre adresse e-mail"} required/>
-                    <button type={"submit"}>S'inscrire</button>
+                    <button className={"global-btn-primary"} type={"submit"}>S'inscrire</button>
                 </form>
             </div>
             <div className={"footer-wrapper"}>
@@ -41,7 +41,7 @@ function Footer(props) {
                             <i className={"icon pinterest"}></i>
                         </a>
                     </div>
-                    <a href={"mailto:contact@cafthe.fr"} className={"contact-btn"}>Écrivez-nous</a>
+                    <a href={"mailto:contact@cafthe.fr"} className={"global-btn-secondary"}>Écrivez-nous</a>
 
                 </div>
             </div>

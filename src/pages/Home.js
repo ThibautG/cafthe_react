@@ -20,7 +20,7 @@ function Home(props) {
                 <header className={"header-articles"}>
                     <h2>Nos derniers articles</h2>
 
-                    <Link className={"cta-articles"} to={"#"}>Voir toutes les actualités</Link>
+                    <Link className={"global-btn-secondary"} to={"#"}>Voir toutes les actualités</Link>
 
                 </header>
                 <div className={"articles-list"}>
@@ -52,7 +52,7 @@ function Home(props) {
             </section>
             <section className={"home-quiz"}>
                 <h2>Quiz : Quel produit est fait pour vous ?</h2>
-                <Link className={"quiz-btn"} to={"#"}>Faire le quiz</Link>
+                <Link className={"global-btn-secondary"} to={"#"}>Faire le quiz</Link>
             </section>
         </React.Fragment>
     );

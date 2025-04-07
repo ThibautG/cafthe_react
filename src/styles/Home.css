@@ -78,12 +78,12 @@
 }
 
 .articles-list h3 {
-    font-size: 1.2rem;
+    font-size: var(--font-size-body);
     margin-bottom: 0.5rem;
 }
 
 .tag {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: var(--color-dark-brown);
 }
 
