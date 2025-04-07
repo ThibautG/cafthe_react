@@ -26,9 +26,6 @@ function App() {
                         <Route path="/" element={<Layout />}>
                             <Route path={"/login"} element={<Login />} />
                             <Route index element={<Home />} />
-{/*
-                            <Route path={"/produit/:id"} element={<ProductDetails />} />
-*/}
                             <Route path={"/produits/cafes"} element={<Coffee />} />
                             <Route path={"/produits/thes"} element={<Tea />} />
                             <Route path={"/produits/accessoires"} element={<Accessories />} />
