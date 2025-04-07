@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import "../styles/CommandDetail.css";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
+import { AuthContext } from "../context/AuthContext";
 
 
 function CommandDetail({id}) {
@@ -9,11 +10,19 @@ function CommandDetail({id}) {
     const [detail, setDetail] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const { token } = useContext(AuthContext);
+
     useEffect(() => {
         const fetchDetail = async () => {
             try {
                 // route get détail d'une commande avec son id
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/commandes/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/commandes/${id}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                    );
                 setDetail(response.data);
             } catch (error) {
                 console.error("Erreur de chargement de la commande", error);

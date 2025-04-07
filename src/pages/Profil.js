@@ -4,10 +4,13 @@ import {Link, useParams} from "react-router-dom";
 import '../styles/Profil.css';
 import Commands from "../components/Commands";
 import CommandDetail from "../components/CommandDetail";
+import {AuthContext} from "../context/AuthContext";
 
 
 function Profil(props) {
     const user = JSON.parse(localStorage.getItem('user'));
+
+    const { token } = useContext(AuthContext);
 
     const [infos, setInfos] = useState({}); // pour récupérer les infos du client afin d'afficher
     const [loading, setLoading] = useState(true); // Pour savoir si les données sont en cours de chargement
@@ -66,6 +69,11 @@ function Profil(props) {
                     "Mail_client": inputValueMail,
                     "Telephone_client": inputValueTelephone,
                     "Adresse_client": inputValueAdresse,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    },
                 }
             );
 
@@ -101,6 +109,11 @@ function Profil(props) {
                 {
                     "oldMdp": inputValueOldPassword,
                     "newMdp": inputValueNewPassword,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
             );
 
@@ -122,7 +135,13 @@ function Profil(props) {
 
     const fetchInfos = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/clients/${user.id}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/clients/${user.id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+
             /*console.log(`${process.env.REACT_APP_API_URL}/api/client/${user.id}`)*/
             setInfos(response.data);
             // on met à jour les inputs après avoir récupéré les infos

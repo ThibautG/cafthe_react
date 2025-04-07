@@ -2,9 +2,10 @@ import React, {useContext, useEffect, useState} from "react";
 import { AuthContext } from "../context/AuthContext";
 import { CartContext } from "../context/CartContext";
 import "../styles/ConfirmOrder.css";
+import { useNavigate } from "react-router-dom";
 
 function ConfirmOrder() {
-    const { cart, totalPriceTTC } = useContext(CartContext);
+    const { cart, totalPriceTTC, deleteCart } = useContext(CartContext);
     const { user } = useContext(AuthContext);
 
     const [errorMsg, setErrorMsg] = useState("");
@@ -28,12 +29,15 @@ function ConfirmOrder() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        setErrorMsg(""); // Reset du message à chaque soumission
+        setErrorMsg("");
 
         if (!adresseLivraison.trim()) {
             setErrorMsg("Veuillez renseigner une adresse de livraison.");
         }
         // C'est là qu'on passera l'appel API si on valide la commande
+
+        // et on vide le panier
+        deleteCart();
     };
 
     return (

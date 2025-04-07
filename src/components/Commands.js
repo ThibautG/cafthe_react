@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import "../styles/Commands.css"
 
 function Commands({id, onSelectCommand}) {
-/*
-    const user = JSON.parse(localStorage.getItem('user')); // on récupère les infos user dans localStorage
-*/
+    const { token } = useContext(AuthContext);
 
     const [commands, setCommands] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +14,13 @@ function Commands({id, onSelectCommand}) {
         const fetchProduits = async () => {
             try {
                 // route get de toutes les commandes d'un client
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/commandes/clients/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/commandes/clients/${id}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                    );
                 setCommands(response.data);
             } catch (error) {
                 console.error("Erreur de chargement des produits", error);
