@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.77a32a79.css",
-    "main.js": "/static/js/main.2d74c1b2.js",
+    "main.css": "/static/css/main.83dc3a77.css",
+    "main.js": "/static/js/main.256ba964.js",
     "static/media/lato-bold-webfont.svg": "/static/media/lato-bold-webfont.a760d15f11b66643bfb6.svg",
     "static/media/lato-black-webfont.svg": "/static/media/lato-black-webfont.e0e26bfd6aa84c7409d4.svg",
     "static/media/lato-bolditalic-webfont.svg": "/static/media/lato-bolditalic-webfont.1022d894a2f3ce522858.svg",
@@ -87,17 +87,17 @@
     "static/media/lato-lightitalic-webfont.woff2": "/static/media/lato-lightitalic-webfont.9e8f4493a2ddab17aafb.woff2",
     "static/media/lato-thin-webfont.woff2": "/static/media/lato-thin-webfont.15762ef4a8e39b93d530.woff2",
     "static/media/lato-thinitalic-webfont.woff2": "/static/media/lato-thinitalic-webfont.bee82abcd205611e21c8.woff2",
-    "static/media/picto.eot?13763863": "/static/media/picto.aff251c3e4fda89f12a2.eot",
-    "static/media/picto.ttf?13763863": "/static/media/picto.92200f12a62142038bf4.ttf",
-    "static/media/picto.woff?13763863": "/static/media/picto.90571b88197a085112c6.woff",
-    "static/media/picto.woff2?13763863": "/static/media/picto.8b56d2b75fc18a4e88fc.woff2",
-    "static/media/picto.svg?13763863": "/static/media/picto.f3ba1873c4718ac5934b.svg",
+    "static/media/picto.eot?69686681": "/static/media/picto.9d48551128aa86eeb908.eot",
+    "static/media/picto.ttf?69686681": "/static/media/picto.f3ddaa749220429399c6.ttf",
+    "static/media/picto.woff?69686681": "/static/media/picto.5e07fa300b9cb490d294.woff",
+    "static/media/picto.woff2?69686681": "/static/media/picto.f86342c2b99113f7b837.woff2",
+    "static/media/picto.svg?69686681": "/static/media/picto.48e5c9c09799218415b2.svg",
     "index.html": "/index.html",
-    "main.77a32a79.css.map": "/static/css/main.77a32a79.css.map",
-    "main.2d74c1b2.js.map": "/static/js/main.2d74c1b2.js.map"
+    "main.83dc3a77.css.map": "/static/css/main.83dc3a77.css.map",
+    "main.256ba964.js.map": "/static/js/main.256ba964.js.map"
   },
   "entrypoints": [
-    "static/css/main.77a32a79.css",
-    "static/js/main.2d74c1b2.js"
+    "static/css/main.83dc3a77.css",
+    "static/js/main.256ba964.js"
   ]
 }
