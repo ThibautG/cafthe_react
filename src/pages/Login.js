@@ -12,10 +12,13 @@ function Login(props) {
     const [mdp, setMdp] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
 
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const handleSubmit = async (e) => { // fonction asynchrone car on va aller chercher les données dans l'API
         e.preventDefault();
         setErrorMsg("");
+        setIsLoading(true);
 
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/login`,
@@ -24,7 +27,6 @@ function Login(props) {
                         "Mdp_client": mdp,
                     },
             );
-            console.log(response.data);
 
             const {token, client} = response.data;
 
@@ -32,7 +34,11 @@ function Login(props) {
             login(token, client);
 
             // redirection du client vers une page
-            navigate("/profil");
+            setTimeout(() => {
+                setIsLoading(false);
+                navigate("/profil");
+            }, 1500);
+
         } catch (error) {
             console.error("Erreur lors de la connexion : ", error);
             if (error.response.data.message) {
@@ -40,6 +46,9 @@ function Login(props) {
             } else {
                 setErrorMsg("Erreur");
             }
+
+            setTimeout(() => setErrorMsg(""), 4000);
+            setIsLoading(false)
         }
     };
 
@@ -48,7 +57,9 @@ function Login(props) {
             <h1>Connexion</h1>
             <p className={"login-subtitle"}>Accédez à votre espace client en toute simplicité.</p>
 
-            {errorMsg && (<p className={"global-msg-error login-msg-error"}>{errorMsg}</p>)}
+            {isLoading && <p className="global-msg-success">Connexion en cours...</p>}
+
+            {errorMsg && <p className={"global-msg-error login-msg-error"}>{errorMsg}</p>}
 
             <div className={"global-box"}>
                 <form onSubmit={handleSubmit}>

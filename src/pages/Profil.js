@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 import '../styles/Profil.css';
+import Commands from "./Commands";
 
 
 function Profil(props) {
@@ -16,9 +17,18 @@ function Profil(props) {
     const [inputValueTelephone, setInputValueTelephone] = useState(infos.Telephone_client || "");
     const [inputValueAdresse, setInputValueAdresse] = useState(infos.Adresse_client || "");
 
+    // On gère l'affichage des confirmations de changement infos
+    const [successMessageInfo, setSuccessMessageInfo] = useState("");
+    const [errorMessageInfo, setErrorMessageInfo] = useState("");
+
     // on récupère les champs input pour changer le mot de passe
     const [inputValueOldPassword, setInputValueOldPassword] = useState("");
     const [inputValueNewPassword, setInputValueNewPassword] = useState("");
+    const [mdpConfirm, setMdpConfirm] = useState("");
+
+    // On gère l'affichage des confirmations du MDP
+    const [successMessagePassword, setSuccessMessagePassword] = useState("");
+    const [errorMessagePassword, setErrorMessagePassword] = useState("");
 
     // un state pour montrer ou cacher le formulaire
     const [showForm, setShowForm] = useState(false);
@@ -39,10 +49,14 @@ function Profil(props) {
 
 
     // fonction pour le onSubmit du bouton du formulaire
-    const handleInfo = async () => {
-        /*console.log("Valeur de l'inputTelephone :", inputValueTelephone);*/
+    const handleInfo = async (e) => {
+        e.preventDefault();
+
+        setSuccessMessageInfo("");
+        setErrorMessageInfo("");
+
         try {
-            const response = await axios.put(
+            await axios.put(
                 `${process.env.REACT_APP_API_URL}/api/clients/${user.id}`,
                 {
                     "Mail_client": inputValueMail,
@@ -50,20 +64,33 @@ function Profil(props) {
                     "Adresse_client": inputValueAdresse,
                 }
             );
-            /*console.log(`${process.env.REACT_APP_API_URL}/api/client/${user.id}`)*/
-            console.log("Réponse du serveur :", response.data);
 
             // On met à jour les infos avec les nouvelles données
-            setInfos(response.data);
+            await fetchInfos();
+
+            setSuccessMessageInfo("Informations mises à jour avec succès.");
+            setTimeout(() => setSuccessMessageInfo(""), 4000);
+            setShowForm(false);
 
         } catch (error) {
-            console.error("Erreur de modification du profil", error);
+            setErrorMessageInfo("Impossible de modifier le profil pour le moment.");
+            setTimeout(() => setErrorMessageInfo(""), 5000);
         }
     };
 
     // fonction pour le onSubmit de modification du password
     const handlePassword = async (e) => {
         e.preventDefault();
+
+        setSuccessMessagePassword("");
+        setErrorMessagePassword("");
+
+        if (inputValueNewPassword !== mdpConfirm) {
+            setErrorMessagePassword("Les mots de passe saisis ne sont pas identiques.");
+            setTimeout(() => setErrorMessagePassword(""), 4000);
+            return;
+        }
+
         try {
             const response = await axios.put(
                 `${process.env.REACT_APP_API_URL}/api/login/${user.id}`,
@@ -73,16 +100,35 @@ function Profil(props) {
                 }
             );
 
-            console.log("Réponse du serveur :", response.data);
-            window.location.reload();
-            alert("Mot de passe modifié");
+            /*window.location.reload();*/
+            setSuccessMessagePassword("Mot de passe modifié avec succès.");
+            setTimeout(() => setSuccessMessagePassword(""), 4000);
+
+            setInputValueOldPassword("");
+            setInputValueNewPassword("");
+            setMdpConfirm("");
+            setShowPassword(false);
 
         } catch (error) {
-            console.error("Erreur de modification du password", error);
-            alert("Erreur lors de la modification du mot de passe !")
+            console.error("Impossible de modifier le mot de passe pour le moment.", error);
+            setErrorMessagePassword("Impossible de modifier le mot de passe pour le moment.");
+            setTimeout(() => setErrorMessagePassword(""), 5000);
         }
     };
 
+    const fetchInfos = async () => {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/clients/${user.id}`);
+            /*console.log(`${process.env.REACT_APP_API_URL}/api/client/${user.id}`)*/
+            setInfos(response.data);
+            // on met à jour les inputs après avoir récupéré les infos
+            setInputValueMail(response.data.Mail_client || "");
+            setInputValueTelephone(response.data.Telephone_client || "");
+            setInputValueAdresse(response.data.Adresse_client || "");
+        } catch (error) {
+            console.error("Erreur de chargement du profil", error);
+        }
+    };
 
     useEffect(() => {
         /*console.log(user)*/
@@ -92,74 +138,125 @@ function Profil(props) {
             return; // Si user est null, on arrête l'exécution
         }
 
-        const fetchInfos = async () => {
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/clients/${user.id}`);
-                /*console.log(`${process.env.REACT_APP_API_URL}/api/client/${user.id}`)*/
-                setInfos(response.data);
-                // on met à jour les inputs après avoir récupéré les infos
-                setInputValueMail(response.data.Mail_client || "");
-                setInputValueTelephone(response.data.Telephone_client || "");
-                setInputValueAdresse(response.data.Adresse_client || "");
-            } catch (error) {
-                console.error("Erreur de chargement du profil", error);
-            }
-        };
-
         void fetchInfos();
     }, [user.id]);
 
-    /*console.log(infos);*/
-    /*console.log(inputValueMail);
-    console.log(inputValueTelephone);
-    console.log(inputValueAdresse);*/
-
 
     return (
-        <section className={"profil-details"}>
-            {/* image */}
-            <h3>Bonjour {infos.Prenom_client} {infos.Nom_client}</h3>
-            <p>E-mail : {infos.Mail_client}</p>
-            <p>Téléphone : {infos.Telephone_client}</p>
-            <p>Adresse : {infos.Adresse_client}</p>
+        <section className={"global-section"}>
+            <h1 className={"global-section-title"}>Mon profil</h1>
+            <p className={"global-section-subtitle"}>
+                Retrouvez et modifiez vos informations personnelles, votre mot de passe et l’historique de vos commandes.
+            </p>
 
-            <div>
-                <button onClick={() => setShowForm(!showForm)}>
-                    {showForm ? "Annuler" : "Modifier mes informations"}
-                </button>
+            {successMessageInfo && <p className="global-msg-success">{successMessageInfo}</p>}
+            {errorMessageInfo && <p className="global-msg-error">{errorMessageInfo}</p>}
 
-                {showForm && (
-                    <form onSubmit={handleInfo}>
-                        <input type="email" value={inputValueMail} onChange={(e) => setInputValueMail(e.target.value)} />
-                        <input type="text" value={inputValueTelephone} onChange={(e) => setInputValueTelephone(e.target.value)} />
-                        <input type="text" value={inputValueAdresse} onChange={(e) => setInputValueAdresse(e.target.value)} />
-                        <button type={"submit"}>Valider</button>
-                    </form>
-                )}
+
+            {successMessagePassword && <p className={"global-msg-success"}>{successMessagePassword}</p>}
+            {errorMessagePassword && <p className={"global-msg-error"}>{errorMessagePassword}</p>}
+
+            <div className={"global-box section-profil"}>
+                <div className={"profil-infos"}>
+                    <h2>Bonjour {infos.Prenom_client} <span className={"global-uppercase"}>{infos.Nom_client}</span></h2>
+                    <p>Client depuis le
+                        : {infos.Date_inscription_client ? infos.Date_inscription_client.split('T')[0] : "Date inconnue"}</p>
+                    <p><strong>E-mail :</strong> {infos.Mail_client}</p>
+                    <p><strong>Téléphone :</strong> {infos.Telephone_client}</p>
+                    <p><strong>Adresse :</strong> {infos.Adresse_client}</p>
+                </div>
+
+                <div className={"profil-change"}>
+                    <div className={"profil-change-infos"}>
+                        {!showForm && (
+                            <button className={"global-btn-secondary"} onClick={() => {
+                                setShowForm(true);
+                                setShowPassword(false);
+                            }}>
+                                Modifier mes informations
+                            </button>
+                        )}
+
+                        {showForm && (
+                            <form onSubmit={handleInfo}>
+                                <label className={"global-label"} htmlFor={"profil-email"}>Email</label>
+                                <input className={"global-input"} id={"profil-email"} type="email"
+                                       value={inputValueMail}
+                                       onChange={(e) => setInputValueMail(e.target.value)}/>
+                                <label className={"global-label"} htmlFor={"profil-tel"}>Téléphone</label>
+                                <input className={"global-input"} id={"profil-tel"} type="text"
+                                       value={inputValueTelephone}
+                                       onChange={(e) => setInputValueTelephone(e.target.value)}/>
+                                <label className={"global-label"} htmlFor={"profil-adresse"}>Adresse</label>
+                                <input className={"global-input"} id={"profil-adresse"} type="text"
+                                       value={inputValueAdresse}
+                                       onChange={(e) => setInputValueAdresse(e.target.value)}/>
+                                <button className={"global-btn-primary"} type={"submit"}>Valider</button>
+                                <button
+                                    className={"global-btn-secondary"}
+                                    type={"button"} //pour ne pas submit le form
+                                    onClick={() => setShowForm(false)}
+                                >
+                                    Annuler
+                                </button>
+                            </form>
+                        )}
+                    </div>
+
+                    <div className={"profil-change-password"}>
+                        {!showPassword && (
+                            <button className={"global-btn-secondary"}
+                                    onClick={() => {
+                                        setShowPassword(true);
+                                        setShowForm(false);
+                                    }}>
+                                Modifier mon mot de passe
+                            </button>
+                        )}
+
+                        {showPassword && (
+                            <form onSubmit={handlePassword}>
+                                <label className={"global-label"} htmlFor={"profil-password-old"}>Mot de passe
+                                    actuel</label>
+                                <input className={"global-input"} id={"profil-password-old"} type="password"
+                                       placeholder={""}
+                                       onChange={(e) => setInputValueOldPassword(e.target.value)}/>
+
+                                <label className={"global-label"} htmlFor={"profil-password-new"}>Nouveau mot de
+                                    passe</label>
+                                <input className={"global-input"} id={"profil-password-new"} type="password"
+                                       placeholder={""}
+                                       onChange={(e) => setInputValueNewPassword(e.target.value)}/>
+
+                                <label className={"global-label"} htmlFor={"profil-password-new-confirm"}>Confirmer le
+                                    nouveau mot de passe</label>
+                                <input className={"global-input"} id={"profil-password-new-confirm"} type="password"
+                                       placeholder={""}
+                                       onChange={(e) => setMdpConfirm(e.target.value)}/>
+
+                                <button className={"global-btn-primary"} type={"submit"}>Valider</button>
+                                <button
+                                    className={"global-btn-secondary"}
+                                    type={"button"} //pour ne pas submit le form
+                                    onClick={() => setShowPassword(false)}
+                                >
+                                    Annuler
+                                </button>
+                            </form>
+                        )}
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <button onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? "Annuler" : "Changer le mot de passe"}
-                </button>
-
-                {showPassword && (
-                    <form onSubmit={handlePassword}>
-                        <input type="password" placeholder={"ANCIEN mot de passe"} onChange={(e) => setInputValueOldPassword(e.target.value)} />
-                        <input type="password" placeholder={"NOUVEAU mot de passe"} onChange={(e) => setInputValueNewPassword(e.target.value)} />
-                        <button type={"submit"}>Valider</button>
-                    </form>
-                )}
-            </div>
-
-            <Link to={`/`} className={"details-btn"}>
+            {/*<Link to={`/`} className={"details-btn"}>
                 Retour à l'accueil
-            </Link>
+            </Link>*/}
 
-            <Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>
+            {/* <Link to={`/commandes/clients/${user.id}`} className={"details-btn"}>
                 Voir les commandes
-            </Link>
+            </Link>*/}
 
+            <Commands id={user.id}/>
 
         </section>
     );

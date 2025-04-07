@@ -29,7 +29,7 @@ function Registration(props) {
         setSuccessMsg("");
 
         if (mdp !== mdpConfirm) {
-            setErrorMsg("Les mots de passe ne correspondent pas.");
+            setErrorMsg("Les mots de passe saisis ne sont pas identiques.");
             return;
         }
 

@@ -3,3 +3,45 @@
     Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
     Other (background, color, font-family, font-size, text-align...)
 */
+
+.section-profil {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.profil-infos {
+    flex: 1;
+    min-width: 280px;
+}
+
+.profil-change {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Améliorations typographiques */
+.profil-infos h2 {
+    font-size: var(--font-size-nav-h2);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.profil-infos p {
+    margin: 0.4rem 0;
+    line-height: 1.5;
+    font-size: var(--font-size-body);
+    color: var(--color-text-main);
+}
+
+/* Optionnel : espacement des formulaires */
+.profil-change form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}

@@ -7,7 +7,9 @@
 /* --- Section principale --- */
 .section-login {
     padding-top: 4rem;
+    /*
     padding-inline: 10%;
+    */
     text-align: center;
     font-family: var(--font-text);
     min-height: 110vh;
@@ -48,10 +50,10 @@
 }
 
 /* --- Erreur --- */
-.section-login .login-msg-error {
+/*.section-login .login-msg-error {
     width: 70%;
     margin: 0 auto 2rem;
-}
+}*/
 
 /* --- Boutons --- */
 .login-actions {
