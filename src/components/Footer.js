@@ -42,7 +42,6 @@ function Footer(props) {
                         </a>
                     </div>
                     <a href={"mailto:contact@cafthe.fr"} className={"global-btn-secondary"}>Écrivez-nous</a>
-
                 </div>
             </div>
             <div className={"footer-links"}>
