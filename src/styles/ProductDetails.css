@@ -30,7 +30,7 @@
 }
 
 .product-details-modal {
-    background: rgba(255, 255, 255, 0.90);
+    background: var(--color-light-grey);
     padding: 3rem;
     border-radius: 3rem;
     max-width: 800px;
