@@ -16,6 +16,7 @@ import CommandDetail from "./components/CommandDetail";
 import Registration from "./pages/Registration";
 import Cart from "./pages/Cart";
 import {CartProvider} from "./context/CartContext";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                         <Route path="/" element={<Layout />}>
                             <Route path={"/login"} element={<Login />} />
                             <Route index element={<Home />} />
+                            <Route path={"/recherche"} element={<SearchPage />}/>
                             <Route path={"/produits/cafes"} element={<Coffee />} />
                             <Route path={"/produits/thes"} element={<Tea />} />
                             <Route path={"/produits/accessoires"} element={<Accessories />} />

@@ -170,14 +170,13 @@ nav {
 }
 
 .cart-icon::before,
-.nav-profil-logo::before {
+.nav-profil-logo::before,
+.navbar-search-icon::before{
     vertical-align: middle;
 }
 
 .navbar-search-icon::before {
     font-family: 'picto';
     content: '\e802';
-    /*
     font-size: 2.4rem;
-    */
 }
