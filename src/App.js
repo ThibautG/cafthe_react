@@ -20,7 +20,7 @@ import SearchPage from "./pages/SearchPage";
 import ConfirmOrder from "./pages/ConfirmOrder";
 import Cgv from "./pages/Cgv";
 import Cgu from "./pages/Cgu";
-import Rgpd from "./pages/Rgpd";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import MentionsLegales from "./pages/MentionsLegales";
 
 function App() {
@@ -42,10 +42,10 @@ function App() {
                             <Route path={"/register"} element={<Registration />} />
                             <Route path={"/panier"} element={<Cart />} />
                             <Route path={"/commande/valider"} element={<ConfirmOrder />} />
-                            <Route path="/cgv" element={<Cgv />} />
-                            <Route path="/cgu" element={<Cgu />} />
-                            <Route path="/rgpd" element={<Rgpd />} />
-                            <Route path="/legals" element={<MentionsLegales />} />
+                            <Route path={"/cgv"} element={<Cgv />} />
+                            <Route path={"/cgu"} element={<Cgu />} />
+                            <Route path={"/confidentialite"} element={<PrivacyPolicy />} />
+                            <Route path={"/legals"} element={<MentionsLegales />} />
                         </Route> {/*Cette route n'est pas auto fermante car elle va contenir les routes enfants*/}
                         {/* Gestion des routes non trouvées */}
                         {/*<Route path="*" element={<NotFound />} />*/}

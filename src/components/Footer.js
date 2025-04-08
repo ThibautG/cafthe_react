@@ -52,7 +52,7 @@ function Footer(props) {
             <div className={"footer-links"}>
                 <Link to={"/cgv"}>CGV</Link>
                 <Link to={"/cgu"}>CGU</Link>
-                <Link to={"/rgpd"}>RGPD</Link>
+                <Link to={"/confidentialite"}>Politique de confidentialité</Link>
                 <Link to={"/legals"}>Mentions légales</Link>
             </div>
         </footer>
