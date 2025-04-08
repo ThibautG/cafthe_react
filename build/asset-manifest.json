@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.83dc3a77.css",
-    "main.js": "/static/js/main.256ba964.js",
+    "main.css": "/static/css/main.4d22d57d.css",
+    "main.js": "/static/js/main.c3b7fd53.js",
     "static/media/lato-bold-webfont.svg": "/static/media/lato-bold-webfont.a760d15f11b66643bfb6.svg",
     "static/media/lato-black-webfont.svg": "/static/media/lato-black-webfont.e0e26bfd6aa84c7409d4.svg",
     "static/media/lato-bolditalic-webfont.svg": "/static/media/lato-bolditalic-webfont.1022d894a2f3ce522858.svg",
@@ -93,11 +93,11 @@
     "static/media/picto.woff2?69686681": "/static/media/picto.f86342c2b99113f7b837.woff2",
     "static/media/picto.svg?69686681": "/static/media/picto.48e5c9c09799218415b2.svg",
     "index.html": "/index.html",
-    "main.83dc3a77.css.map": "/static/css/main.83dc3a77.css.map",
-    "main.256ba964.js.map": "/static/js/main.256ba964.js.map"
+    "main.4d22d57d.css.map": "/static/css/main.4d22d57d.css.map",
+    "main.c3b7fd53.js.map": "/static/js/main.c3b7fd53.js.map"
   },
   "entrypoints": [
-    "static/css/main.83dc3a77.css",
-    "static/js/main.256ba964.js"
+    "static/css/main.4d22d57d.css",
+    "static/js/main.c3b7fd53.js"
   ]
 }
