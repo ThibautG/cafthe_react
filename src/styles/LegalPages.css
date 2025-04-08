@@ -1,0 +1,53 @@
+/* ----------------------------------- */
+/* ---------- Legal Pages ------------ */
+/* ----------------------------------- */
+
+.legal-page {
+    padding-bottom: 6rem;
+    font-family: var(--font-text);
+    line-height: 1.8;
+    color: var(--color-text-main);
+}
+
+.legal-page-content {
+    margin: 0 auto;
+    padding: 4rem 8%;
+    background-color: var(--color-background-box);
+    border-radius: 1rem;
+    font-size: var(--font-size-body);
+}
+
+.legal-page-content h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-title);
+    font-size: var(--font-size-h3);
+    color: var(--color-dark-green);
+    border-left: 4px solid var(--color-dark-green);
+    padding-left: 1rem;
+}
+
+.legal-page-content p {
+    margin-bottom: 2rem;
+}
+
+.legal-page-content ul {
+    padding-left: 2rem;
+    list-style-type: disc;
+    margin-top: 1rem;
+}
+
+.legal-page-content li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-page-content a {
+    color: var(--color-dark-green);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.3s ease;
+}
+
+.legal-page-content a:hover {
+    color: var(--color-dark-brown);
+}

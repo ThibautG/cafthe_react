@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from "react-router-dom";
 import {Link} from "react-router-dom";
 import '../styles/Footer.css';
 
@@ -50,10 +51,18 @@ function Footer(props) {
                 </div>
             </div>
             <div className={"footer-links"}>
-                <Link to={"/cgv"}>CGV</Link>
-                <Link to={"/cgu"}>CGU</Link>
-                <Link to={"/confidentialite"}>Politique de confidentialité</Link>
-                <Link to={"/legals"}>Mentions légales</Link>
+                <Link to={"/cgv"}
+                      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                >CGV</Link>
+                <Link to={"/cgu"}
+                      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                >CGU</Link>
+                <Link to={"/confidentialite"}
+                      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                >Politique de confidentialité</Link>
+                <Link to={"/legals"}
+                      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                >Mentions légales</Link>
             </div>
         </footer>
     );
