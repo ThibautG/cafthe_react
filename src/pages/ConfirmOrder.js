@@ -9,6 +9,7 @@ function ConfirmOrder() {
     const { user } = useContext(AuthContext);
 
     const [errorMsg, setErrorMsg] = useState("");
+    const [successMsg, setSuccessMsg] = useState("");
 
     const [prenom, setPrenom] = useState("");
     const [nom, setNom] = useState("");
@@ -30,14 +31,32 @@ function ConfirmOrder() {
         e.preventDefault();
 
         setErrorMsg("");
+        setSuccessMsg("");
 
         if (!adresseLivraison.trim()) {
             setErrorMsg("Veuillez renseigner une adresse de livraison.");
+
+            setTimeout(() => {
+                const errorBlock = document.querySelector(".confirm-error-message");
+                if (errorBlock) {
+                    errorBlock.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 100);
+            return;
         }
+
         // C'est là qu'on passera l'appel API si on valide la commande
+        setSuccessMsg("Merci ! Votre commande a bien été enregistrée.");
 
         // et on vide le panier
         deleteCart();
+
+        setTimeout(() => {
+            const successBlock = document.querySelector(".confirm-success-message");
+            if (successBlock) {
+                successBlock.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 100);
     };
 
     return (
@@ -48,6 +67,12 @@ function ConfirmOrder() {
             {errorMsg && (
                 <div className={"confirm-error-message"}>
                     <p className={"global-msg-error"}>{errorMsg}</p>
+                </div>
+            )}
+
+            {successMsg && (
+                <div className={"confirm-success-message"}>
+                    <p className={"global-msg-success"}>{successMsg}</p>
                 </div>
             )}
 
