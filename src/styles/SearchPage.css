@@ -11,3 +11,22 @@
 .no-product {
     padding-top: 6rem;
 }
+
+
+/* ------------------------ */
+/* ----- MEDIA QUERIES ---- */
+/* ------------------------ */
+
+/* Tablette */
+@media (max-width: 1024px) {
+    .global-section {
+        min-height: auto;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .global-input {
+        margin-bottom: 3rem;
+    }
+}

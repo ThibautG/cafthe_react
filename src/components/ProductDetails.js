@@ -15,7 +15,7 @@ function ProductDetails({ produit, onClose, isClosing }) {
                 </div>
                 <div>
                     <h3>{produit.Designation_produit}</h3>
-                    <p>{produit.Description_produit}</p>
+                    <p className={"product-description"}>{produit.Description_produit}</p>
                     <ul className={"product-details-info"}>
                         <li><strong>Conditionnement :</strong> {produit.Type_conditionnement}</li>
                         <li><strong>Prix TTC :</strong> {produit.Prix_ttc_produit}€</li>

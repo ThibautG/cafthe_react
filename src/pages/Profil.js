@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import '../styles/Profil.css';
 import Commands from "../components/Commands";
 import CommandDetail from "../components/CommandDetail";
@@ -8,7 +8,10 @@ import {AuthContext} from "../context/AuthContext";
 
 
 function Profil(props) {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const navigate = useNavigate() ;
+
+    const storedUser = localStorage.getItem('user');
+    const user = storedUser ? JSON.parse(storedUser) : null;
 
     const { token } = useContext(AuthContext);
 
@@ -158,12 +161,14 @@ function Profil(props) {
         if (!user) {
             setError("Utilisateur non authentifié");
             setLoading(false);
+            navigate("/login");
             return; // Si user est null, on arrête l'exécution
         }
 
         void fetchInfos();
-    }, [user.id]);
+    }, [user, navigate]);
 
+    if (!user) return null;
 
     return (
         <section className={"global-section wrap-profil"}>

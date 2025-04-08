@@ -4,6 +4,13 @@
     Other (background, color, font-family, font-size, text-align...)
 */
 
+/* pb box affichage */
+/**,
+*::before,
+*::after {
+    box-sizing: border-box;
+}*/
+
 /*!* Variables CSS *!*/
 :root{
     --font-logo: Mayonice, Arial, Helvetica, sans-serif;
@@ -299,4 +306,89 @@ em {
 .global-no-button {
     background: none;
     border: none;
+}
+
+
+/* ------------------------ */
+/* ----- MEDIA QUERIES ---- */
+/* ------------------------ */
+
+/* Tablette */
+@media (max-width: 1024px) {
+    /* pb box affichage */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --font-size-h2: 2.8rem;
+        --font-size-baseline: 3rem;
+        --font-size-nav-h2: 1.8rem;
+        --font-size-nav-logo: 4rem;
+    }
+
+
+section {
+        padding-inline: 6%;
+    }
+
+    .global-box {
+        padding: 4rem 10%;
+    }
+
+    .global-btn-primary,
+    .global-btn-secondary {
+        padding: 1rem 2.4rem;
+        font-size: 1.4rem;
+    }
+
+    .global-input {
+        padding-block: 0.8rem;
+        padding-left: 2.4rem;
+        font-size: 1.4rem;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    :root {
+        --font-size-body: 1.4rem;
+        --font-size-h2: 2.2rem;
+        --font-size-baseline: 2.6rem;
+        --font-size-nav-h2: 1.6rem;
+        --font-size-nav-logo: 3.2rem;
+    }
+
+    section {
+        padding-inline: 4%;
+    }
+
+    .global-box {
+        padding: 3rem 6%;
+    }
+
+    .global-section {
+        padding-top: 2rem;
+    }
+
+    .global-msg-success,
+    .global-msg-error {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .global-btn-primary,
+    .global-btn-secondary {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    .global-input {
+        padding-block: 0.6rem;
+        padding-left: 2rem;
+        font-size: 1.2rem;
+    }
 }

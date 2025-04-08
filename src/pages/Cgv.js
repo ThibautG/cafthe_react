@@ -47,7 +47,7 @@ function Cgv(props) {
                 <h2>6. Service client</h2>
                 <p>
                     Pour toute question, notre équipe se tient à votre disposition par mail à <a
-                    href="mailto:contact@cafthe.fr">contact@cafthe.fr</a>. Nous nous engageons à répondre sous 1 jour
+                    href="mailto:cafthe@email.fr">cafthe@email.fr</a>. Nous nous engageons à répondre sous 1 jour
                     ouvré en moyenne.
                 </p>
 

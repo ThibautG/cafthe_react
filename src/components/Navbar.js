@@ -10,8 +10,11 @@ function Navbar(props) {
     const navigate = useNavigate(); // la navigation
     const handleLogout = () => {
         logout();
-        navigate("/");
         deleteCart();
+
+        setTimeout(() => {
+            navigate("/");
+        }, 0);
     };
     return (
         <nav>

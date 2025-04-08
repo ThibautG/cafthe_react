@@ -20,7 +20,9 @@ function Home(props) {
                 <header className={"header-articles"}>
                     <h2>Nos derniers articles</h2>
 
-                    <Link className={"global-btn-secondary"} to={"#"}>Voir toutes les actualités</Link>
+                    <div className={"wrapper-all-news"}>
+                        <Link className={"global-btn-secondary"} to={"#"}>Voir toutes les actualités</Link>
+                    </div>
 
                 </header>
                 <div className={"articles-list"}>

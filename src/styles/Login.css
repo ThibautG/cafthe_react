@@ -77,3 +77,24 @@
     text-underline-offset: 4px;
     text-decoration-thickness: 0.5px;
 }
+
+/* ------------------------ */
+/* ----- MEDIA QUERIES ---- */
+/* ------------------------ */
+
+/* TABLETTE */
+@media (max-width: 1024px) {
+    .section-login {
+        min-height: auto;
+        padding-bottom: 6rem;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .section-login {
+        min-height: auto;
+        padding-bottom: 4rem;
+    }
+}
+

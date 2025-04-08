@@ -62,3 +62,19 @@
     padding-top: 1rem;
 }
 
+
+/* ------------------------ */
+/* ----- MEDIA QUERIES ---- */
+/* ------------------------ */
+
+@media (max-width: 767px) {
+    .global-section {
+        min-height: auto;
+    }
+    .global-section-subtitle {
+        margin-bottom: 4rem;
+    }
+    .section-register {
+        padding-bottom: 4rem;
+    }
+}

@@ -14,7 +14,7 @@ function MentionsLegales(props) {
                 <p>
                     Le présent site est édité par :<br/>
                     <strong>Thibaut GAUDINAT</strong><br/>
-                    Contact : <a href="mailto:contact@cafthe.fr">contact@cafthe.fr</a><br/>
+                    Contact : <a href="mailto:cafthe@email.fr">cafthe@email.fr</a><br/>
                     Site : <a
                     href="https://cafthe.thibaut.gaudinat.dev-campus.fr/">cafthe.thibaut.gaudinat.dev-campus.fr</a>
                 </p>
@@ -51,7 +51,7 @@ function MentionsLegales(props) {
                     CafThé s’efforce d’offrir une disponibilité optimale du site 24h/24 et 7j/7.
                     Toutefois, des interruptions temporaires peuvent survenir pour maintenance ou mise à jour.
                     En cas de bug, d’erreur ou de problème technique, vous pouvez nous contacter à l’adresse <a
-                    href="mailto:contact@cafthe.fr">contact@cafthe.fr</a>.
+                    href="mailto:cafthe@email.fr">cafthe@email.fr</a>.
                 </p>
 
                 <h2>6. Données personnelles</h2>

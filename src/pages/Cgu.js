@@ -67,7 +67,7 @@ function Cgu(props) {
                 <h2>8. Contact</h2>
                 <p>
                     Pour toute question concernant les CGU, n’hésitez pas à nous écrire à <a
-                    href="mailto:contact@cafthe.fr">contact@cafthe.fr</a>.
+                    href="mailto:cafthe@email.fr">cafthe@email.fr</a>.
                 </p>
             </div>
         </section>

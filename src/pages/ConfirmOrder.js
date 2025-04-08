@@ -107,7 +107,7 @@ function ConfirmOrder() {
                             required
                         />
                     </li>
-                    <li>
+                    <li className={"order-total"}>
                         <p><strong>Total TTC : {totalPriceTTC} €</strong></p>
                     </li>
                     <li className={"register-button"}>

@@ -3,3 +3,17 @@
     Display & Box Model (display, overflow, box-sizing, width, height, padding, border, margin...)
     Other (background, color, font-family, font-size, text-align...)
 */
+
+.order-total {
+    padding-top: 3rem;
+}
+
+/* ------------------------ */
+/* ----- MEDIA QUERIES ---- */
+/* ------------------------ */
+
+@media (max-width: 767px) {
+    .global-section {
+        padding-bottom: 4rem;
+    }
+}

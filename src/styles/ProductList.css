@@ -13,7 +13,8 @@
 }
 
 .product {
-    width: 304px;
+    width: 100%;
+    max-width: 304px;
     height: 366px;
     border-radius: 30px;
     margin-top: 12rem;
@@ -25,3 +26,19 @@
     flex-direction: column;
 }
 
+
+
+/* ------------------------ */
+/* ----- MEDIA QUERIES ---- */
+/* ------------------------ */
+
+/* Mobile */
+@media (max-width: 767px) {
+    .product-list {
+        gap: 2rem 2.5rem;
+    }
+
+    .product {
+        margin-top: 6rem;
+    }
+}

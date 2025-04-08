@@ -137,3 +137,52 @@
     background-color: var(--color-dark-green);
     color: var(--color-light-orange);
 }
+
+
+/* ------------------------ */
+/* ----- MEDIA QUERIES ---- */
+/* ------------------------ */
+
+/* TABLETTE */
+@media (max-width: 1024px) {
+    .product-details-modal {
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .product-details-modal .product-details-image img {
+        width: 20rem;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .product-details-modal {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .product-details-modal .product-details-image img {
+        width: 80%;
+        max-width: 20rem;
+    }
+
+    .product-details-modal h3::after {
+        margin: 1.5rem auto 0;
+    }
+
+    .product-details-info {
+        align-items: center;
+    }
+
+    .product-details-modal button {
+        width: 100%;
+    }
+
+    .product-description {
+        text-align: left;
+    }
+}

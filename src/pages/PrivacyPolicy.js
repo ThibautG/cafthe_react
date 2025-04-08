@@ -54,7 +54,7 @@ function PrivacyPolicy(props) {
                 <ul>
                     <li>Modifier vos informations personnelles depuis votre profil client</li>
                     <li>Demander la suppression de votre compte en nous contactant à l’adresse suivante : <a
-                        href="mailto:contact@cafthe.fr">contact@cafthe.fr</a></li>
+                        href="mailto:cafthe@email.fr">cafthe@email.fr</a></li>
                 </ul>
 
                 <h2>8. Durée de conservation</h2>

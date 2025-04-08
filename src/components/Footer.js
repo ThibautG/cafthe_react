@@ -47,7 +47,7 @@ function Footer(props) {
                             <i className={"icon pinterest"}></i>
                         </a>
                     </div>
-                    <a href={"mailto:contact@cafthe.fr"} className={"global-btn-secondary"}>Écrivez-nous</a>
+                    <a href={"mailto:cafthe@email.fr"} className={"global-btn-secondary"}>Écrivez-nous</a>
                 </div>
             </div>
             <div className={"footer-links"}>
